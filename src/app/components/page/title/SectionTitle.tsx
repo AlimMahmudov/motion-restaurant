@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import scss from "./SectionTitle.module.scss";
-import imgLeft from "../images/section-title-img-left.png";
-import imgRight from "../images/section-title-img-right.png";
 import img9 from "../../../../assets/Frame 9.png";
 import img10 from "../../../../assets/Frame 10.png";
 
