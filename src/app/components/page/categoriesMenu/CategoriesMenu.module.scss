@@ -1,0 +1,26 @@
+.CategoriesMenu {
+  background: #1f2731;
+  flex-grow: 1;
+  height: fit-content;
+  ul {
+    li {
+      cursor: pointer;
+      text-align: center;
+      padding: 0px 62px;
+      a {
+        display: block;
+        font-family: Silk Serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 36.82px;
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e5e5e5;
+      }
+      a:last-child {
+        margin-bottom: 9px;
+      }
+    }
+  }
+}

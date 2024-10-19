@@ -1,0 +1,48 @@
+.best {
+  padding: 50px;
+  color: #ffffff;
+  .best_sellers {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    h1 {
+      font-family: "Shalimar", cursive;
+      font-family: Shalimar;
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 48.8px;
+    }
+  }
+
+  .best_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .best_text {
+      h1 {
+        width: 320px;
+        height: 122px;
+        font-family: Silk Serif;
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 61.36px;
+      }
+      p {
+        width: 447px;
+        height: 72px;
+        font-family: Spartan;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+
+    .best_image {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+}
