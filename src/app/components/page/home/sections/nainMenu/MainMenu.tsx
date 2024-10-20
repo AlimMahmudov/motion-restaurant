@@ -6,8 +6,8 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Link from 'next/link'
 import React, { useMemo } from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
-import SectionTitles from '../../../../../../ui/title/SectionTitle'
 import scss from './MainMenu.module.scss'
+import SectionTitles from '@/shared/ui/title/SectionTitle'
 
 const MainMenu = () => {
 	const { $t } = useLanguageStore()
