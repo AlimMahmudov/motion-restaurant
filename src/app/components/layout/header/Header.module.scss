@@ -1,16 +1,24 @@
 #Header {
 	background: #1b2026;
-	// position: fixed;
-	// width: 100%;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9999;
 
+	@media (max-width: 900px) {
+		border-bottom: 1px solid #ccc;
+	}
 	.header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 18px 0;
-
 		.dropdown {
-			&.small [data-content='true'] {
+			@media (max-width: 900px) {
+				display: none;
+			}
+			&.add [data-content='true'] {
 				right: 0;
 			}
 			[data-content='true'] {
@@ -18,7 +26,7 @@
 				flex-direction: column;
 				padding: 6px;
 				border-radius: 4px;
-				background-color: #151515;
+				background-color: #23303f;
 
 				z-index: 15;
 				right: var(--dropdown-left);
@@ -41,7 +49,7 @@
 				font-family: var(--spartan);
 
 				&:hover {
-					background-color: #282828;
+					background-color: #36485e;
 				}
 			}
 		}
@@ -67,11 +75,19 @@
 			align-items: center;
 			gap: 100px;
 			color: #ffffff;
-			nav {
+			@media (max-width: 1180px) {
+				gap: 20px;
+			}
+			.nav_items {
 				display: flex;
 				align-items: center;
 				gap: 60px;
-
+				@media (max-width: 1180px) {
+					gap: 20px;
+				}
+				@media (max-width: 900px) {
+					display: none;
+				}
 				a {
 					font-family: var(--spartan);
 					font-size: 16px;
@@ -87,8 +103,10 @@
 				display: flex;
 				align-items: center;
 				gap: 80px;
+				@media (max-width: 1180px) {
+					gap: 20px;
+				}
 				.header_input {
-					
 					padding: 10px;
 					height: 37px;
 					border-radius: 10px;
@@ -97,7 +115,9 @@
 					display: flex;
 					align-items: center;
 					gap: 3px;
-
+					@media (max-width: 600px) {
+						display: none;
+					}
 					input {
 						font-family: var(--spartan);
 						background: none;

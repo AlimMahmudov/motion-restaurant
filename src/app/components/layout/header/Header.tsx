@@ -5,6 +5,8 @@ import clsx from 'clsx'
 import { CiSearch } from 'react-icons/ci'
 import scss from './Header.module.scss'
 import useWindowSize from '@/shared/hooks/useWindowSize'
+import HeaderMenu from './ui/HeaderMenu'
+import Link from 'next/link'
 
 const Header = () => {
 	const { $t, language, setLanguage } = useLanguageStore()
@@ -22,12 +24,12 @@ const Header = () => {
 						<h1>Restaurant</h1>
 					</div>
 					<div className={scss.header_search}>
-						<nav>
+						<nav className={scss.nav_items}>
 							{Array.isArray(menuItems) &&
 								menuItems?.map(item => (
-									<a href={item.href} key={item.title}>
+									<Link href={item.href} key={item.title}>
 										{item.title}
-									</a>
+									</Link>
 								))}
 						</nav>
 						<div className={scss.end}>
@@ -42,10 +44,15 @@ const Header = () => {
 									placeholder={`${$t('header.searchPlaceholder', 'global')}...`}
 								/>
 							</div>
+							{width <= 900 && (
+								<HeaderMenu menuItems={menuItems} languages={languages} />
+							)}
 							<Dropdown
 								pt={width <= 1400 ? 'default' : 'centered'}
 								isOutsideClick
-								className={clsx(scss.dropdown, { [scss.small]: width <= 1400 })}
+								className={clsx(scss.dropdown, {
+									[scss.add]: width <= 1400
+								})}
 								trigger={({ toggle, ref }) => (
 									<button
 										className={clsx(scss.trigger_btn)}

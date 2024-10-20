@@ -47,7 +47,7 @@ const Dropdown: React.FC<IDropdownProps> = memo(props => {
 		}
 	}, [anchorSize, contentSize, contentEl, pt])
 	return (
-		<div className={clsx(className, 'relative inlineBlock')} ref={ref}>
+		<div className={clsx(className, 'relative inlineFlexCenter')} ref={ref}>
 			{trigger({
 				toggle,
 				state,
