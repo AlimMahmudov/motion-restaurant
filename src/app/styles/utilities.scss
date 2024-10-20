@@ -74,27 +74,38 @@
 .custom-image {
 	height: 100%;
 	width: 100%;
-
-	&.loading {
-		background: var(--gray4);
+	position: relative;
+	&.loading::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		z-index: 1;
 	}
 }
 
 .loader {
 	width: 48px;
 	height: 48px;
-	border: 4px solid var(--white);
+	border: 4px solid #fff;
 	border-radius: 50%;
 	display: inline-block;
 	box-sizing: border-box;
 	animation: rotation 1.4s linear infinite;
+	&.abs {
+		z-index: 10;
+		position: absolute;
+	}
 
 	&.black {
-		border-color: var(--black);
+		border-color: #000;
 	}
 
 	&.v2 {
-		border-bottom-color: var(--accent);
+		border-bottom-color: #ef272c;
 	}
 
 	&.small {

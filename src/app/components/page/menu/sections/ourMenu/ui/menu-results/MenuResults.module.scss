@@ -1,0 +1,138 @@
+.noItems {
+	text-align: center;
+	padding: 20px;
+	width: 678px;
+
+	p {
+		color: #666;
+		font-size: 1.2em;
+		font-weight: 500;
+		width: 100%;
+	}
+}
+.activeFood {
+	margin-bottom: 40px;
+	background: #1f2731;
+	width: 773px;
+	display: flex;
+	align-items: flex-start;
+	.right {
+		padding: 20px;
+		width: 100%;
+		* {
+			font-family: var(--spartan);
+		}
+		.row {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			margin-bottom: 5px;
+			span {
+				font-family: var(--spartan);
+				font-size: 17px;
+				font-weight: 500;
+				line-height: 16.8px;
+				text-align: left;
+				color: #939393;
+			}
+		}
+		.col {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 15px;
+			h4 {
+				margin-bottom: 7px;
+				color: white;
+				font-family: var(--spartan);
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 1.2;
+			}
+		}
+	}
+}
+
+.FoodItems {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	max-width: 760px;
+	min-width: 760px;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.foodItems__card {
+	background: white;
+	color: black;
+	min-width: 329px;
+	max-width: 329px;
+	height: 250px;
+	&.active {
+		background: transparent;
+		.content {
+			h4 {
+				color: #fff;
+			}
+			span {
+				font-size: 18px;
+			}
+		}
+	}
+
+	.content {
+		padding: 12px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		h4 {
+			font-size: 16px;
+			font-weight: 600;
+		}
+
+		span {
+			font-size: 16px;
+			font-weight: 600;
+			color: #ef272c;
+		}
+
+		* {
+			font-family: var(--spartan);
+		}
+
+		.ingredients {
+			display: flex;
+			align-items: center;
+
+			li {
+				font-size: 14px;
+				font-weight: 500;
+				color: #939393;
+			}
+		}
+
+		.column {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 4px;
+		}
+	}
+
+	.image_figure {
+		position: relative;
+		width: 100%;
+		height: 78%;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: all 0.25s;
+		}
+	}
+}

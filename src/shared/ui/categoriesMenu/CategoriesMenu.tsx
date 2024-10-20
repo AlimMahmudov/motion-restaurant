@@ -29,7 +29,7 @@ const CategoriesMenu: React.FC<ICategoriesMenuProps> = ({
 								[scss.active]: activeCategory === el.id
 							})}
 						>
-							<a>{el.title}</a>
+							<span>{el.title}</span>
 						</li>
 					))}
 			</ul>

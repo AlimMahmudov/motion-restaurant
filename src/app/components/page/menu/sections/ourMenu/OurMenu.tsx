@@ -2,11 +2,11 @@
 import { foodItems } from '@/shared/const/foodItems'
 import { useLanguageStore } from '@/shared/stores/language-store'
 import CategoriesMenu from '@/shared/ui/categoriesMenu/CategoriesMenu'
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import React, { useMemo } from 'react'
 import scss from './OurMenu.module.scss'
+import MenuResults from './ui/menu-results/MenuResults'
 
-const OurMenu: React.FC<{ categoryId?: string }> = ({ categoryId }) => {
+const OurMenu: React.FC<{ category_id?: string }> = ({ category_id }) => {
 	const { $t } = useLanguageStore()
 
 	const categories = $t<{ id: string; title: string }[]>(
@@ -14,7 +14,7 @@ const OurMenu: React.FC<{ categoryId?: string }> = ({ categoryId }) => {
 		'global'
 	)
 	const [activeCategory, setActiveCategory] = React.useState<string>(
-		categoryId ?? categories[0].id
+		category_id ?? categories[0].id
 	)
 
 	const changeActiveCategory = (id: string) => {
@@ -41,8 +41,6 @@ const OurMenu: React.FC<{ categoryId?: string }> = ({ categoryId }) => {
 		return uniqueItems as typeof foodItems
 	}, [activeCategory])
 
-	const [parent] = useAutoAnimate()
-
 	return (
 		<section className={scss.MainMenu}>
 			<div className='container'>
@@ -52,40 +50,7 @@ const OurMenu: React.FC<{ categoryId?: string }> = ({ categoryId }) => {
 						activeCategory={activeCategory}
 						changeActiveCategory={changeActiveCategory}
 					/>
-					{filteredSortedFoodItems.length == 0 ? (
-						<div className={scss.noItems}>
-							<p>
-								No items found matching your search criteria. Please try again
-								with different keywords.
-							</p>
-						</div>
-					) : (
-						<div className={scss.FoodItems} ref={parent}>
-							{filteredSortedFoodItems.map(
-								({ name, price, imageSrc, ingredients }) => (
-									<div key={name} className={scss.foodItems__card}>
-										<figure className={scss.image_figure}>
-											<img src={imageSrc} alt={name} />
-										</figure>
-										<div className={scss.content}>
-											<div className={scss.column}>
-												<h4>{name}</h4>
-												<ul className={scss.ingredients}>
-													{ingredients.slice(0, 4).map((ingredient, idx) => (
-														<li key={ingredient}>
-															{ingredient}
-															{idx < ingredients.length - 1 && ','}
-														</li>
-													))}
-												</ul>
-											</div>
-											<span>${price.toFixed(2)}</span>
-										</div>
-									</div>
-								)
-							)}
-						</div>
-					)}
+					<MenuResults foodItems={filteredSortedFoodItems} />
 				</div>
 			</div>
 		</section>

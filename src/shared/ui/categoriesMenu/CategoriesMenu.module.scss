@@ -2,6 +2,8 @@
 	background: #1f2731;
 	flex-grow: 1;
 	height: fit-content;
+	max-width: 400px;
+	min-width: 400px;
 
 	ul {
 		li {
@@ -28,12 +30,12 @@
 					transform: rotateY(0);
 				}
 				background: #ef272c;
-				a {
+				span {
 					border-bottom: none;
 				}
 			}
 
-			a {
+			span {
 				display: block;
 				font-family: var(--silkSerif);
 				font-size: 24px;
@@ -45,7 +47,7 @@
 				border-bottom: 1px solid #e5e5e5;
 			}
 
-			a:last-child {
+						span:last-child {
 				margin-bottom: 9px;
 			}
 		}
