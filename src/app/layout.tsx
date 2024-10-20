@@ -1,26 +1,25 @@
-import { Shalimar, League_Spartan } from "next/font/google";
-import "./globals.scss";
-import LayoutPage from "./components/layout/LayoutPage";
+import './styles/globals.scss'
+import LayoutPage from './components/layout/LayoutPage'
+import LayoutClient from './layout.client'
 
-const spartan = League_Spartan({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
-const shalimar = Shalimar({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+export const metadata = {
+	title: 'Italian Cuisine',
+	description:
+		'Classic steak & delicious with delightfully unexpenced twists. The Restaurant`s sunny decor was inspired by the diners'
+}
 
 export default function RootLayout({
-  children,
+	children
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body className={` ${spartan.className} ${shalimar.className}`}>
-        <LayoutPage>{children}</LayoutPage>
-      </body>
-    </html>
-  );
+	return (
+		<html lang='en'>
+			<body>
+				<LayoutClient>
+					<LayoutPage>{children}</LayoutPage>
+				</LayoutClient>
+			</body>
+		</html>
+	)
 }
