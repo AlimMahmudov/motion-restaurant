@@ -27,13 +27,13 @@ const Footer = () => {
 									</a>
 								))}
 						</div>
-						<div className={scss.telegram}>
-							<h1>
+						<div className={scss.links}>
+							<a href='#' className='inlineFlexCenter'>
 								<FaTelegramPlane />
-							</h1>
-							<h1>
+							</a>
+							<a href='#' className='inlineFlexCenter'>
 								<AiFillInstagram />
-							</h1>
+							</a>
 						</div>
 					</div>
 					<hr />

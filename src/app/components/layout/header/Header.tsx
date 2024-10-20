@@ -7,12 +7,11 @@ import Dropdown from '@/ui/Dropdown'
 import clsx from 'clsx'
 
 const Header = () => {
-	const { $t, language, setLanguage, translations } = useLanguageStore()
+	const { $t, language, setLanguage } = useLanguageStore()
 	const menuItems = $t<Record<'title' | 'href', string>[]>(
 		'header.menu',
 		'global'
 	)
-	console.log(translations)
 	const languages = $t<string[]>('header.languages', 'global')
 	return (
 		<header id={scss.Header}>

@@ -64,7 +64,7 @@
 				align-items: center;
 				gap: 60px;
 				a {
-					font-family: var(--silkSerif);
+					font-family: var(--spartan);
 					font-size: 16px;
 					font-weight: 500;
 					line-height: 17.92px;
@@ -89,12 +89,14 @@
 					gap: 3px;
 
 					input {
+						font-family: var(--spartan);
 						background: none;
 						color: #ffffff;
 						border: none;
-						width: 180px;
-						height: 37px;
+						width: 100%;
+						padding: 4px;
 						outline: none;
+						font-size: 16px;
 						&::placeholder {
 							color: white;
 						}

@@ -1,17 +1,16 @@
 'use client'
-import React from "react";
-import scss from "./ModernInterior.module.scss";
-import Image from "next/image";
-import interiorImg1 from "../../../../assets/scril.png";
-import interiorImg2 from "../../../../assets/scrol2.png";
-import interiorImg3 from "../../../../assets/scrol3.png";
-import interiorImg4 from "../../../../assets/scrol4.png";
-import interiorImg5 from "../../../../assets/scrol5.png";
-import SectionTitles from "../title/SectionTitle";
 import { useLanguageStore } from '@/stores/language-store'
+import Image from 'next/image'
+import interiorImg1 from '../../../../assets/scril.png'
+import interiorImg2 from '../../../../assets/scrol2.png'
+import interiorImg3 from '../../../../assets/scrol3.png'
+import interiorImg4 from '../../../../assets/scrol4.png'
+import interiorImg5 from '../../../../assets/scrol5.png'
+import SectionTitles from '../../components/title/SectionTitle'
+import scss from './ModernInterior.module.scss'
 const ModernInterior = () => {
-	const {$t} = useLanguageStore()
-  return (
+	const { $t } = useLanguageStore()
+	return (
 		<>
 			<SectionTitles
 				title={$t('homeSections.moderninterior.sectiontitles.title', 'global')}
@@ -49,6 +48,6 @@ const ModernInterior = () => {
 			</section>
 		</>
 	)
-};
+}
 
-export default ModernInterior;
+export default ModernInterior

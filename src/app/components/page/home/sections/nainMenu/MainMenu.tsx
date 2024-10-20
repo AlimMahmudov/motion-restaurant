@@ -1,9 +1,8 @@
 'use client'
-import React from 'react'
-import scss from './MainMenu.module.scss'
-import CategoriesMenu from '../categoriesMenu/CategoriesMenu'
-import SectionTitles from '../title/SectionTitle'
 import { useLanguageStore } from '@/stores/language-store'
+import CategoriesMenu from '../../components/categoriesMenu/CategoriesMenu'
+import SectionTitles from '../../components/title/SectionTitle'
+import scss from './MainMenu.module.scss'
 const foodItems = [
 	{
 		title: 'Beer Brewery',
