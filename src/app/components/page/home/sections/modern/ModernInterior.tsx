@@ -1,13 +1,13 @@
 'use client'
 import { useLanguageStore } from '@/stores/language-store'
 import Image from 'next/image'
-import interiorImg1 from '../../../../assets/scril.png'
-import interiorImg2 from '../../../../assets/scrol2.png'
-import interiorImg3 from '../../../../assets/scrol3.png'
-import interiorImg4 from '../../../../assets/scrol4.png'
-import interiorImg5 from '../../../../assets/scrol5.png'
-import SectionTitles from '../../components/title/SectionTitle'
+import interiorImg1 from '../../../../../../assets/scril.png'
+import interiorImg2 from '../../../../../../assets/scrol2.png'
+import interiorImg3 from '../../../../../../assets/scrol3.png'
+import interiorImg4 from '../../../../../../assets/scrol4.png'
+import interiorImg5 from '../../../../../../assets/scrol5.png'
 import scss from './ModernInterior.module.scss'
+import SectionTitles from '@/ui/title/SectionTitle'
 const ModernInterior = () => {
 	const { $t } = useLanguageStore()
 	return (

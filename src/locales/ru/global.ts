@@ -39,12 +39,12 @@ export default {
 		},
 		mainmenu: {
 			categories: [
-				{ id: 1, title: 'Десерты' },
-				{ id: 2, title: 'Горячие напитки' },
-				{ id: 3, title: 'Холодные напитки' },
-				{ id: 4, title: 'Национальные блюда' },
-				{ id: 5, title: 'Восточная кухня' },
-				{ id: 6, title: 'Фастфуд' }
+				{ id: 'desserts-001', title: 'Десерты' },
+				{ id: 'hot-drinks-002', title: 'Горячие напитки' },
+				{ id: 'cold-drinks-003', title: 'Холодные напитки' },
+				{ id: 'national-foods-004', title: 'Национальные блюда' },
+				{ id: 'eastern-cuisine-005', title: 'Восточная кухня' },
+				{ id: 'fast-foods-006', title: 'Фастфуд' }
 			],
 			sectiontitles: {
 				title: 'Главное Меню',

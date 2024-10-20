@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
 import scss from './About.module.scss'
-import img10 from '../../../../assets/Frame 10.png'
-import img15 from '../../../../assets/Frame 15.png'
-import img16 from '../../../../assets/Frame 16.png'
+import img10 from '../../../../../../assets/Frame 10.png'
+import img15 from '../../../../../../assets/Frame 15.png'
+import img16 from '../../../../../../assets/Frame 16.png'
 import Image from 'next/image'
 import { useLanguageStore } from '@/stores/language-store'
 

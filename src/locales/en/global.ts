@@ -39,12 +39,12 @@ export default {
 		},
 		mainmenu: {
 			categories: [
-				{ id: 1, title: 'Desserts' },
-				{ id: 2, title: 'Hot Drinks' },
-				{ id: 3, title: 'Cold Drinks' },
-				{ id: 4, title: 'National Foods' },
-				{ id: 5, title: 'Eastern Cuisine' },
-				{ id: 6, title: 'Fast Foods' }
+				{ id: 'desserts-001', title: 'Desserts' },
+				{ id: 'hot-drinks-002', title: 'Hot Drinks' },
+				{ id: 'cold-drinks-003', title: 'Cold Drinks' },
+				{ id: 'national-foods-004', title: 'National Foods' },
+				{ id: 'eastern-cuisine-005', title: 'Eastern Cuisine' },
+				{ id: 'fast-foods-006', title: 'Fast Foods' }
 			],
 			sectiontitles: {
 				title: 'Main Menu',

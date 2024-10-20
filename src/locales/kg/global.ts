@@ -39,12 +39,12 @@ export default {
 		},
 		mainmenu: {
 			categories: [
-				{ id: 1, title: 'Таттуулар' },
-				{ id: 2, title: 'Ыссык суусундуктар' },
-				{ id: 3, title: 'Муздак суусундуктар' },
-				{ id: 4, title: 'Улуттук тамактар' },
-				{ id: 5, title: 'Чыгыш ашканасы' },
-				{ id: 6, title: 'Тез тамактар' }
+				{ id: 'desserts-001', title: 'Таттуулар' },
+				{ id: 'hot-drinks-002', title: 'Ыссык суусундуктар' },
+				{ id: 'cold-drinks-003', title: 'Муздак суусундуктар' },
+				{ id: 'national-foods-004', title: 'Улуттук тамактар' },
+				{ id: 'eastern-cuisine-005', title: 'Чыгыш ашканасы' },
+				{ id: 'fast-foods-006', title: 'Тез тамактар' }
 			],
 			sectiontitles: {
 				title: 'Негизги Меню',
