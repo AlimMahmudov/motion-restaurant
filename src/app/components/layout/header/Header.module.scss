@@ -10,6 +10,9 @@
 		padding: 18px 0;
 
 		.dropdown {
+			&.small [data-content='true'] {
+				right: 0;
+			}
 			[data-content='true'] {
 				display: flex;
 				flex-direction: column;
@@ -43,8 +46,12 @@
 			}
 		}
 		.trigger_btn {
-			font-size: 26px;
-			line-height: 0.5;
+			font-family: var(--silkSerif);
+			font-size: 25px;
+			font-weight: 600;
+			line-height: 21.48px;
+			text-align: left;
+			color: #ffffff;
 		}
 		.header_logo {
 			h1 {
@@ -64,6 +71,7 @@
 				display: flex;
 				align-items: center;
 				gap: 60px;
+
 				a {
 					font-family: var(--spartan);
 					font-size: 16px;
@@ -80,6 +88,7 @@
 				align-items: center;
 				gap: 80px;
 				.header_input {
+					
 					padding: 10px;
 					height: 37px;
 					border-radius: 10px;

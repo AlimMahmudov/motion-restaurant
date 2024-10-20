@@ -6,8 +6,8 @@ export default {
 			{ title: 'Меню', href: '/menu' },
 			{ title: 'Байланыштар', href: '/#contacts' }
 		],
-		languages: ['EN - Английский', 'RU - Русский', 'KG - Кыргызский'],
-		searchPlaceholder: "Издөө"
+		languages: ['EN - Англисче', 'RU - Орусча', 'KG - Кыргызча'],
+		searchPlaceholder: 'Издөө'
 	},
 	homeSections: {
 		hero: {
@@ -67,7 +67,7 @@ export default {
 			mon_thu: 'Дүйш-Пер: 10:00 - 01:00',
 			fri_sun: 'Жума-Ишем: 10:00 - 02:00',
 			purchase_gift_card: 'Белек картасын сатып алуу',
-			contact_info: 'Байланыш маалыматтары',
+			contact_info: 'Байланыш маалыматтары'
 		}
 	}
 }

@@ -4,6 +4,7 @@ import Dropdown from '@/shared/ui/Dropdown'
 import clsx from 'clsx'
 import { CiSearch } from 'react-icons/ci'
 import scss from './Header.module.scss'
+import useWindowSize from '@/shared/hooks/useWindowSize'
 
 const Header = () => {
 	const { $t, language, setLanguage } = useLanguageStore()
@@ -12,6 +13,7 @@ const Header = () => {
 		'global'
 	)
 	const languages = $t<string[]>('header.languages', 'global')
+	const { width } = useWindowSize()
 	return (
 		<header id={scss.Header}>
 			<div className='container'>
@@ -41,16 +43,16 @@ const Header = () => {
 								/>
 							</div>
 							<Dropdown
-								pt='centered'
+								pt={width <= 1400 ? 'default' : 'centered'}
 								isOutsideClick
-								className={scss.dropdown}
+								className={clsx(scss.dropdown, { [scss.small]: width <= 1400 })}
 								trigger={({ toggle, ref }) => (
 									<button
 										className={clsx(scss.trigger_btn)}
 										onClick={toggle}
 										ref={ref}
 									>
-										{language}
+										<span>{language}</span>
 									</button>
 								)}
 							>

@@ -6,7 +6,7 @@ export default {
 			{ title: 'Меню', href: '/menu' },
 			{ title: 'Контакты', href: '/#contacts' }
 		],
-		languages: ['EN - Англисче', 'RU - Орусча', 'KG - Кыргызча'],
+		languages: ['EN - Английский', 'RU - Русский', 'KG - Кыргызский'],
 		searchPlaceholder: 'Поиск'
 	},
 	homeSections: {
