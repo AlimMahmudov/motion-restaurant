@@ -1,13 +1,13 @@
 'use client'
-import { useLanguageStore } from '@/stores/language-store'
-import SectionTitles from '../../../../../../ui/title/SectionTitle'
-import scss from './MainMenu.module.scss'
-import CategoriesMenu from '@/ui/categoriesMenu/CategoriesMenu'
-import React, { useMemo } from 'react'
-import { foodItems } from '@/const/foodItems'
+import { foodItems } from '@/shared/const/foodItems'
+import { useLanguageStore } from '@/shared/stores/language-store'
+import CategoriesMenu from '@/shared/ui/categoriesMenu/CategoriesMenu'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Link from 'next/link'
+import React, { useMemo } from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
+import SectionTitles from '../../../../../../ui/title/SectionTitle'
+import scss from './MainMenu.module.scss'
 
 const MainMenu = () => {
 	const { $t } = useLanguageStore()
@@ -43,7 +43,6 @@ const MainMenu = () => {
 	}, [activeCategory])
 
 	const [parent] = useAutoAnimate()
-
 
 	return (
 		<section className={scss.MainMenu}>

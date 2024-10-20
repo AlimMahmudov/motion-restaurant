@@ -1,9 +1,8 @@
 'use client'
-import React from 'react'
+import { useLanguageStore } from '@/shared/stores/language-store'
 import { AiFillInstagram } from 'react-icons/ai'
 import { FaTelegramPlane } from 'react-icons/fa'
 import scss from './Footer.module.scss'
-import { useLanguageStore } from '@/stores/language-store'
 
 const Footer = () => {
 	const { $t } = useLanguageStore()

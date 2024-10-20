@@ -1,10 +1,9 @@
 'use client'
-import React from 'react'
-import scss from './Visit.module.scss'
+import img10 from '@/shared/assets/Frame 10.png'
+import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
-import img10 from '@/assets/Frame 10.png'
-import { useLanguageStore } from '@/stores/language-store'
+import scss from './Visit.module.scss'
 
 const Visit = () => {
 	const { $t, language } = useLanguageStore()

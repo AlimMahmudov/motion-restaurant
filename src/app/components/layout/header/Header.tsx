@@ -1,10 +1,9 @@
 'use client'
-import React from 'react'
+import { useLanguageStore } from '@/shared/stores/language-store'
+import Dropdown from '@/shared/ui/Dropdown'
+import clsx from 'clsx'
 import { CiSearch } from 'react-icons/ci'
 import scss from './Header.module.scss'
-import { useLanguageStore } from '@/stores/language-store'
-import Dropdown from '@/ui/Dropdown'
-import clsx from 'clsx'
 
 const Header = () => {
 	const { $t, language, setLanguage } = useLanguageStore()
@@ -31,7 +30,9 @@ const Header = () => {
 						</nav>
 						<div className={scss.end}>
 							<div className={scss.header_input}>
-								<label className="inlineFlexCenter" htmlFor='search'>{<CiSearch strokeWidth={2} />}</label>
+								<label className='inlineFlexCenter' htmlFor='search'>
+									{<CiSearch strokeWidth={2} />}
+								</label>
 								<input
 									type='text'
 									id='search'

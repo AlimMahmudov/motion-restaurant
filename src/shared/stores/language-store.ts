@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
-import locales from '@/locales'
+import locales from '@/shared/locales'
 import { create } from 'zustand'
 
 interface ILanguageStore {
@@ -45,7 +45,6 @@ export const useLanguageStore = create<ILanguageStore>()((set, get) => ({
 		if (typeof window !== 'undefined') {
 			document.querySelector('html')?.setAttribute('lang', get().language)
 			document.querySelector('html')?.setAttribute('class', get().language)
-
 		}
 	}
 }))

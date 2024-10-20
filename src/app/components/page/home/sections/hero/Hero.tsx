@@ -1,14 +1,11 @@
 'use client'
-import React from 'react'
+import buttonImg2 from '@/shared/assets/Frame 10.png'
+import buttonImg1 from '@/shared/assets/Frame 9.png'
 import scss from './Hero.module.scss'
-import buttonImg1 from '@/assets/Frame 9.png'
-import buttonImg2 from '@/assets/Frame 10.png'
 
-import { FaArrowRightLong } from 'react-icons/fa6'
-import { FaLocationDot } from 'react-icons/fa6'
-import { FaPhoneFlip } from 'react-icons/fa6'
+import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
-import { useLanguageStore } from '@/stores/language-store'
+import { FaArrowRightLong, FaLocationDot, FaPhoneFlip } from 'react-icons/fa6'
 
 const Hero = () => {
 	const { $t } = useLanguageStore()

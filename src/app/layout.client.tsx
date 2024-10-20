@@ -1,5 +1,5 @@
 'use client'
-import { useLanguageStore } from '@/stores/language-store'
+import { useLanguageStore } from '@/shared/stores/language-store'
 import React, { useEffect } from 'react'
 
 const LayoutClient: React.FC<{ children: React.ReactNode }> = ({

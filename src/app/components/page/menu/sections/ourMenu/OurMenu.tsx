@@ -1,10 +1,10 @@
 'use client'
+import { foodItems } from '@/shared/const/foodItems'
+import { useLanguageStore } from '@/shared/stores/language-store'
+import CategoriesMenu from '@/shared/ui/categoriesMenu/CategoriesMenu'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import React, { useMemo } from 'react'
 import scss from './OurMenu.module.scss'
-import CategoriesMenu from '@/ui/categoriesMenu/CategoriesMenu'
-import { useLanguageStore } from '@/stores/language-store'
-import { useAutoAnimate } from '@formkit/auto-animate/react'
-import { foodItems } from '@/const/foodItems'
 
 const OurMenu: React.FC<{ categoryId?: string }> = ({ categoryId }) => {
 	const { $t } = useLanguageStore()
