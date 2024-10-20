@@ -1,8 +1,8 @@
 'use client'
 import React from 'react'
 import scss from './Hero.module.scss'
-import buttonImg1 from '../../../../../../assets/Frame 9.png'
-import buttonImg2 from '../../../../../../assets/Frame 10.png'
+import buttonImg1 from '@/assets/Frame 9.png'
+import buttonImg2 from '@/assets/Frame 10.png'
 
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { FaLocationDot } from 'react-icons/fa6'
@@ -27,8 +27,12 @@ const Hero = () => {
 
 					<div className={scss.box}>
 						<div className={scss.line}></div>
+
 						<button>
-							{$t('homeSections.hero.reserveButton', 'global')} <FaArrowRightLong />
+							<span>{$t('homeSections.hero.reserveButton', 'global')} </span>
+							<span className='inlineFlexCenter'>
+								<FaArrowRightLong />
+							</span>
 						</button>
 						<div className={scss.line}></div>
 					</div>

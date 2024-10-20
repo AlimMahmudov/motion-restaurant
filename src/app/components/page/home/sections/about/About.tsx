@@ -1,9 +1,9 @@
 'use client'
 import React from 'react'
 import scss from './About.module.scss'
-import img10 from '../../../../../../assets/Frame 10.png'
-import img15 from '../../../../../../assets/Frame 15.png'
-import img16 from '../../../../../../assets/Frame 16.png'
+import img10 from '@/assets/Frame 10.png'
+import img15 from '@/assets/Frame 15.png'
+import img16 from '@/assets/Frame 16.png'
 import Image from 'next/image'
 import { useLanguageStore } from '@/stores/language-store'
 
@@ -11,7 +11,7 @@ const About = () => {
 	const { $t } = useLanguageStore()
 
 	return (
-		<div id='about_us'>
+		<div id='about_us' data-scrool="true">
 			<div className='container'>
 				<div className={scss.about}>
 					<div className={scss.about_text}>

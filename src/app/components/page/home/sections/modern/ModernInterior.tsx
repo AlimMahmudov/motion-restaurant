@@ -1,22 +1,25 @@
 'use client'
 import { useLanguageStore } from '@/stores/language-store'
 import Image from 'next/image'
-import interiorImg1 from '../../../../../../assets/scril.png'
-import interiorImg2 from '../../../../../../assets/scrol2.png'
-import interiorImg3 from '../../../../../../assets/scrol3.png'
-import interiorImg4 from '../../../../../../assets/scrol4.png'
-import interiorImg5 from '../../../../../../assets/scrol5.png'
+import interiorImg1 from '@/assets/scril.png'
+import interiorImg2 from '@/assets/scrol2.png'
+import interiorImg3 from '@/assets/scrol3.png'
+import interiorImg4 from '@/assets/scrol4.png'
+import interiorImg5 from '@/assets/scrol5.png'
 import scss from './ModernInterior.module.scss'
 import SectionTitles from '@/ui/title/SectionTitle'
 const ModernInterior = () => {
 	const { $t } = useLanguageStore()
 	return (
 		<>
-			<SectionTitles
-				title={$t('homeSections.moderninterior.sectiontitles.title', 'global')}
-				subtitle=''
-			/>
-			<section id='interior' className={scss.ModernInterior}>
+			<section data-scrool='true' id='interior' className={scss.ModernInterior}>
+				<SectionTitles
+					title={$t(
+						'homeSections.moderninterior.sectiontitles.title',
+						'global'
+					)}
+					subtitle=''
+				/>
 				<div className='container'>
 					<div className={scss.ModernInterior__inner}>
 						<div className={scss.modern__content}>

@@ -6,6 +6,8 @@ import CategoriesMenu from '@/ui/categoriesMenu/CategoriesMenu'
 import React, { useMemo } from 'react'
 import { foodItems } from '@/const/foodItems'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import Link from 'next/link'
+import { FaArrowRightLong } from 'react-icons/fa6'
 
 const MainMenu = () => {
 	const { $t } = useLanguageStore()
@@ -77,33 +79,15 @@ const MainMenu = () => {
 								</div>
 							</div>
 						))}
-						<button className={`${scss.view_full_menu} inlineFlexCenter`}>
+						<Link
+							href={`/menu?category_id=${activeCategory}`}
+							className={`${scss.view_full_menu} inlineFlexCenter`}
+						>
 							<span>{$t('homeSections.mainmenu.viewfullmenu', 'global')}</span>
-							<svg
-								width='14'
-								height='12'
-								viewBox='0 0 14 12'
-								fill='none'
-								xmlns='http://www.w3.org/2000/svg'
-							>
-								<path
-									d='M8.41748 2.96509L11.9583 6.00009L8.41748 9.03509'
-									stroke='white'
-									stroke-width='1.5'
-									stroke-miterlimit='10'
-									stroke-linecap='round'
-									stroke-linejoin='round'
-								/>
-								<path
-									d='M2.0415 6H11.859'
-									stroke='white'
-									stroke-width='1.5'
-									stroke-miterlimit='10'
-									stroke-linecap='round'
-									stroke-linejoin='round'
-								/>
-							</svg>
-						</button>
+							<span className='inlineFlexCenter'>
+								<FaArrowRightLong />
+							</span>
+						</Link>
 					</div>
 				</div>
 			</div>

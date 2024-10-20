@@ -1,10 +1,10 @@
 import React from 'react'
 import OurMenu from './sections/ourMenu/OurMenu'
 
-const MenuPage = () => {
-  return (
+const MenuPage: React.FC<PageProps> = ({ searchParams }) => {
+	return (
 		<>
-			<OurMenu/>
+			<OurMenu categoryId={searchParams.category_id} />
 		</>
 	)
 }

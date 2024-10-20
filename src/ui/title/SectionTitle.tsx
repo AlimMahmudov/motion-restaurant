@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import scss from './SectionTitle.module.scss'
-import img9 from '../../assets/Frame 9.png'
-import img10 from '../../assets/Frame 10.png'
+import img9 from '@/assets/Frame 9.png'
+import img10 from '@/assets/Frame 10.png'
 
 import Image from 'next/image'
 interface Iprops {

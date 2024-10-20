@@ -3,7 +3,7 @@
 			rgba(8, 5, 22, 0.712),
 			rgba(5, 8, 22, 0.658)
 		),
-		url('../../../../../../assets/heroimage.png');
+		url('/images/heroimage.png');
 	background-size: cover;
 	background-position: center;
 
@@ -66,10 +66,6 @@
 			button {
 				display: flex;
 				gap: 10px;
-				font-family: var(--spartan);
-				font-size: 12px;
-				font-weight: 600;
-				line-height: 13.44px;
 				text-align: left;
 				background: #00000000;
 				color: white;
@@ -77,6 +73,12 @@
 				border-radius: 2px;
 				border: solid 1px #ef272c;
 				transition: all 0.15s;
+				span {
+					font-family: var(--spartan);
+					font-size: 14px;
+					font-weight: 600;
+					line-height: 13.44px;
+				}
 			}
 
 			button:hover {

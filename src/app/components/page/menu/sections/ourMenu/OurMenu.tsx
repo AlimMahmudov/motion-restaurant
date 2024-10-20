@@ -6,7 +6,7 @@ import { useLanguageStore } from '@/stores/language-store'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { foodItems } from '@/const/foodItems'
 
-const OurMenu = () => {
+const OurMenu: React.FC<{ categoryId?: string }> = ({ categoryId }) => {
 	const { $t } = useLanguageStore()
 
 	const categories = $t<{ id: string; title: string }[]>(
@@ -14,7 +14,7 @@ const OurMenu = () => {
 		'global'
 	)
 	const [activeCategory, setActiveCategory] = React.useState<string>(
-		categories[0].id
+		categoryId ?? categories[0].id
 	)
 
 	const changeActiveCategory = (id: string) => {
