@@ -1,7 +1,10 @@
+.parent {
+	width: 100%;
+}
 .noItems {
 	text-align: center;
 	padding: 20px;
-	width: 678px;
+	width: 100%;
 
 	p {
 		color: #666;
@@ -13,12 +16,20 @@
 .activeFood {
 	margin-bottom: 40px;
 	background: #1f2731;
-	width: 773px;
+	max-width: 100%;
+	min-width: 100%;
 	display: flex;
 	align-items: flex-start;
+	@media (max-width: 600px) {
+		flex-direction: column;
+	}
 	.right {
 		padding: 20px;
 		width: 100%;
+		@media (max-width: 600px) {
+			padding: 16px;
+			padding-top: 0;
+		}
 		* {
 			font-family: var(--spartan);
 		}
@@ -54,24 +65,88 @@
 }
 
 .FoodItems {
-	width: 100%;
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
-	max-width: 760px;
-	min-width: 760px;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	max-width: 740px;
+	min-width: 740px;
 	gap: 20px;
+	@media (max-width: 1200px) and (max-width: 900px) {
+		max-width: 100%;
+		min-width: 100%;
+		grid-template-columns: repeat(2, 1fr);
+	}
+	@media (max-width: 1100px) and (min-width: 880px) {
+		max-width: 100%;
+		min-width: 100%;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media (max-width: 600px) {
+		max-width: 100%;
+		min-width: 100%;
+		grid-template-columns: repeat(1, 1fr);
+		justify-items: center;
+	}
 }
 
 .foodItems__card {
 	background: white;
 	color: black;
-	min-width: 329px;
-	max-width: 329px;
+	min-width: 100%;
+	max-width: 100%;
 	height: 250px;
+	@media (max-width: 1100px) {
+		min-width: 100%;
+		max-width: 100%;
+		height: 270px;
+	}
+	@media (max-width: 600px) {
+		min-width: 80%;
+		max-width: 80%;
+		height: 300px;
+	}
+	@media (max-width: 500px) {
+		min-width: 90%;
+		max-width: 90%;
+	}
+	@media (max-width: 400px) {
+		min-width: 100%;
+		max-width: 100%;
+		height: 250px;
+	}
 	&.active {
+		min-width: 349px;
+		max-width: 349px;
 		background: transparent;
+		@media (max-width: 1100px) and (min-width: 880px) {
+			min-width: 449px;
+			max-width: 449px;
+		}
+		@media (max-width: 600px) {
+			min-width: 100%;
+			max-width: 100%;
+			height: 400px;
+			.content {
+				padding: 16px;
+				span {
+					font-size: 1.6rem !important;
+				}
+				h4 {
+					font-size: 2em;
+				}
+				.ingredients li {
+					font-size: 1.2em;
+				}
+			}
+		}
+		@media (max-width: 400px) {
+			height: 250px;
+			margin-bottom: 20px;
+			.content {
+				h4 {
+					font-size: 1.6em;
+				}
+			}
+		}
 		.content {
 			h4 {
 				color: #fff;
@@ -87,6 +162,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		width: 100%;
 
 		h4 {
 			font-size: 16px;

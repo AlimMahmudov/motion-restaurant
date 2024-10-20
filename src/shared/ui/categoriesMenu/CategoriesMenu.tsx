@@ -10,30 +10,30 @@ interface ICategoriesMenuProps {
 		id: string
 		title: string
 	}[]
+	type?: string
 }
 
 const CategoriesMenu: React.FC<ICategoriesMenuProps> = ({
 	changeActiveCategory,
 	activeCategory,
-	categories
+	categories,
+	type
 }) => {
 	return (
-		<nav className={scss.CategoriesMenu}>
-			<ul>
-				{Array.isArray(categories) &&
-					categories.map(el => (
-						<li
-							key={el.id}
-							onClick={() => changeActiveCategory(el.id)}
-							className={clsx({
-								[scss.active]: activeCategory === el.id
-							})}
-						>
-							<span>{el.title}</span>
-						</li>
-					))}
-			</ul>
-		</nav>
+		<ul className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
+			{Array.isArray(categories) &&
+				categories.map(el => (
+					<li
+						key={el.id}
+						onClick={() => changeActiveCategory(el.id)}
+						className={clsx('flexCenter',{
+							[scss.active]: activeCategory === el.id
+						})}
+					>
+						<span>{el.title}</span>
+					</li>
+				))}
+		</ul>
 	)
 }
 

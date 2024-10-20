@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useRef, useState } from 'react'
 import scss from './MenuResults.module.scss'
 import { foodItems } from '@/shared/const/foodItems'
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import CImage from '@/shared/ui/Image'
 
 interface IMenuResultsProps {
@@ -11,11 +11,17 @@ interface IMenuResultsProps {
 }
 const MenuResults: React.FC<IMenuResultsProps> = ({ foodItems }) => {
 	const [activeFood, setActiveFood] = useState<string | null>(null)
-	const changeActiveFood = (id: string) => setActiveFood(id)
+	const changeActiveFood = (id: string) => {
+		setActiveFood(id)
+		window.scrollTo(0, 0)
+	}
 	const activeFoodItem = useMemo(
 		() => foodItems.find(item => item.id === activeFood),
 		[activeFood, foodItems]
 	)
+
+	const ref = useRef(null)
+	const isInView = useInView(ref, { once: true })
 
 	const extras = [
 		{ name: 'Cherry', price: 0.9 },
@@ -28,7 +34,7 @@ const MenuResults: React.FC<IMenuResultsProps> = ({ foodItems }) => {
 	]
 
 	return (
-		<div>
+		<div className={scss.parent}>
 			{activeFood && activeFoodItem && (
 				<motion.div
 					key={activeFood}
@@ -36,7 +42,7 @@ const MenuResults: React.FC<IMenuResultsProps> = ({ foodItems }) => {
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: -20 }}
 					transition={{ duration: 0.4 }}
-					className={scss.activeFood}	
+					className={scss.activeFood}
 				>
 					<div
 						className={clsx(scss['left'], scss.foodItems__card, {
@@ -76,13 +82,18 @@ const MenuResults: React.FC<IMenuResultsProps> = ({ foodItems }) => {
 				</div>
 			) : (
 				<div className={scss.FoodItems}>
-					{foodItems.map(({ name, id, ...item }) => (
+					{foodItems.map(({ name, id, ...item }, idx) => (
 						<motion.button
+							ref={ref}
 							onClick={() => changeActiveFood(id)}
 							key={name}
-							className={scss.foodItems__card}
+							className={clsx(scss.foodItems__card, 'flexCol')}
 							whileHover={{ scale: 1.01 }}
 							whileTap={{ scale: 1 }}
+							initial={{ opacity: 0, y: -20 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -20 }}
+							transition={{ duration: 0.4 * (idx + 1) }}
 						>
 							<Card {...item} name={name} />
 						</motion.button>

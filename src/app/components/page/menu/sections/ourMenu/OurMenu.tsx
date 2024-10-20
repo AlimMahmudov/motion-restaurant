@@ -46,6 +46,7 @@ const OurMenu: React.FC<{ category_id?: string }> = ({ category_id }) => {
 			<div className='container'>
 				<div className={scss.MainMenu__inner}>
 					<CategoriesMenu
+						type="ourmenu"
 						categories={categories}
 						activeCategory={activeCategory}
 						changeActiveCategory={changeActiveCategory}
