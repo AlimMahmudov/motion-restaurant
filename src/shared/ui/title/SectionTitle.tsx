@@ -13,7 +13,7 @@ const SectionTitles: FC<Iprops> = ({ title, subtitle }) => {
 		<div className={scss.SectionTitle}>
 			<div className={scss.Title}>
 				<Image src={img10} alt='not-found' />
-				<h2>{title}</h2>
+				<h4>{title}</h4>
 				<Image src={img9} alt='not-found' />
 			</div>
 			{subtitle && <h3 className={scss.SectionSubtitle}>{subtitle}</h3>}

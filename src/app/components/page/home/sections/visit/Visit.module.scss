@@ -1,14 +1,20 @@
 .visit {
+	padding: 50px;
+	display: flex;
+	justify-content: space-between;
 	&.ru {
 		.visit_text h1[data-h1] {
 			line-height: 1 !important;
 			width: 400px;
 		}
 	}
-	padding: 50px;
-	display: flex;
-	justify-content: space-between;
 
+	&.kg {
+		.visit_text h1[data-h1] {
+			line-height: 1.1 !important;
+			width: 450px;
+		}
+	}
 	.visit_text {
 		gap: 20px;
 		display: flex;

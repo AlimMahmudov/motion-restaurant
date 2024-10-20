@@ -22,8 +22,7 @@ export const useLanguageStore = create<ILanguageStore>()((set, get) => ({
 	setLanguage: (lang: TypeLanguage) => {
 		set({ language: lang })
 		if (typeof window !== 'undefined') {
-			document.querySelector('html')?.setAttribute('lang', lang)
-			document.querySelector('html')?.setAttribute('class', lang)
+			document.body?.setAttribute('class', lang)
 			localStorage.setItem('lang', JSON.stringify(lang))
 		}
 	},
@@ -43,8 +42,7 @@ export const useLanguageStore = create<ILanguageStore>()((set, get) => ({
 	},
 	init() {
 		if (typeof window !== 'undefined') {
-			document.querySelector('html')?.setAttribute('lang', get().language)
-			document.querySelector('html')?.setAttribute('class', get().language)
+			document.body?.setAttribute('class', get().language)
 		}
 	}
 }))

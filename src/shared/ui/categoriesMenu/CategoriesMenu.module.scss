@@ -9,7 +9,24 @@
 			text-align: center;
 			padding: 0px 62px;
 			transition: all 0.25s;
+			position: relative;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: -7%;
+				background: #fff;
+				width: 70px;
+				height: 1px;
+				transition: all 0.25s;
+				transform: rotateY(90deg);
+				transform-origin: left;
+			}
 			&.active {
+				&::after {
+					width: 70px;
+					transform: rotateY(0);
+				}
 				background: #ef272c;
 				a {
 					border-bottom: none;

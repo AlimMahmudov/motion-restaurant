@@ -8,10 +8,13 @@
 	.Title {
 		display: flex;
 		align-items: center;
-		column-gap: 39px;
+		gap: 30px;
 
-		h2 {
-			font-size: 40px;
+		h4 {
+			font-family: var(--shalimar);
+			font-size: 45px;
+			font-weight: 400;
+			line-height: 1.2;
 		}
 	}
 

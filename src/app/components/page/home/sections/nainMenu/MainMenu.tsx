@@ -65,9 +65,8 @@ const MainMenu = () => {
 							<div key={el.name} className={scss.foodItems__content}>
 								<div className={scss.foodItems__content__top}>
 									<h3>{el.name}</h3>
-									<i>
-										....................................................................
-									</i>
+									{Array.from({ length: 60 }).map(() => '•')}
+									<i></i>
 									<span>{el.price}</span>
 								</div>
 								<p>{el.description}</p>
