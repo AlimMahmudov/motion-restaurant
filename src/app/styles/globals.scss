@@ -11,6 +11,9 @@
 
 body {
 	background: #1b2026;
+	&::-webkit-scrollbar{
+		width: 0;
+	}
 }
 
 html {

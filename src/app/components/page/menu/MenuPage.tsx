@@ -1,9 +1,12 @@
 import React from 'react'
+import OurMenu from './sections/ourMenu/OurMenu'
 
 const MenuPage = () => {
   return (
-	 <div></div>
-  )
+		<>
+			<OurMenu/>
+		</>
+	)
 }
 
 export default MenuPage
