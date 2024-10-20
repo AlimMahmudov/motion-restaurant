@@ -1,10 +1,10 @@
 export default {
 	header: {
 		menu: [
-			{ title: 'Интерьер', href: '/#interior' },
-			{ title: 'О нас', href: '/#about_us' },
+			{ title: 'Интерьер', href: '#interior' },
+			{ title: 'О нас', href: '#about_us' },
 			{ title: 'Меню', href: '/menu' },
-			{ title: 'Контакты', href: '/#contacts' }
+			{ title: 'Контакты', href: '#contacts' }
 		],
 		languages: ['EN - Английский', 'RU - Русский', 'KG - Кыргызский'],
 		searchPlaceholder: 'Поиск'

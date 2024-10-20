@@ -12,7 +12,7 @@ const ModernInterior = () => {
 	const { $t } = useLanguageStore()
 	return (
 		<>
-			<section data-scrool='true' id='interior' className={scss.ModernInterior}>
+			<section id='interior' className={scss.ModernInterior}>
 				<SectionTitles
 					title={$t(
 						'homeSections.moderninterior.sectiontitles.title',

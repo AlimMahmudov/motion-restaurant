@@ -5,10 +5,8 @@
 	top: 0;
 	left: 0;
 	z-index: 9999;
+	border-bottom: 1px solid #ccc;
 
-	@media (max-width: 900px) {
-		border-bottom: 1px solid #ccc;
-	}
 	.header {
 		display: flex;
 		justify-content: space-between;

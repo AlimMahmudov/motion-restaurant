@@ -1,3 +1,9 @@
+.header_menu {
+	display: none;
+	@media (max-width: 900px) {
+		display: block;
+	}
+}
 .languages {
 	display: flex;
 	align-items: center;

@@ -12,7 +12,7 @@ const Best = () => {
 	const { $t } = useLanguageStore()
 
 	return (
-		<div>
+		<section>
 			<div className='container'>
 				<div className={scss.best}>
 					<div className={scss.best_sellers}>
@@ -32,7 +32,7 @@ const Best = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

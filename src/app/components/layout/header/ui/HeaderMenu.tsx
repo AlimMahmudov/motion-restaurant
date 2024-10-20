@@ -20,7 +20,7 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = ({ menuItems, languages }) => {
 	const _internalClick = () => set(false)
 
 	return (
-		<div className={clsx('relative inlineFlexCenter')}>
+		<div className={clsx('relative inlineFlexCenter', scss.header_menu)}>
 			<button
 				onClick={toggle}
 				className={clsx(scss['open_menu'], 'inlineFlexCenter')}

@@ -11,7 +11,7 @@ const Hero = () => {
 	const { $t } = useLanguageStore()
 
 	return (
-		<div id={scss.Hero}>
+		<section id={scss.Hero}>
 			<div className='container'>
 				<div className={scss.hero}>
 					<div className={scss.head}>
@@ -61,7 +61,7 @@ const Hero = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

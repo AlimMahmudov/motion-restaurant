@@ -7,6 +7,7 @@ import scss from './Header.module.scss'
 import useWindowSize from '@/shared/hooks/useWindowSize'
 import HeaderMenu from './ui/HeaderMenu'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const Header = () => {
 	const { $t, language, setLanguage } = useLanguageStore()
@@ -14,6 +15,7 @@ const Header = () => {
 		'header.menu',
 		'global'
 	)
+	const pathname = usePathname()
 	const languages = $t<string[]>('header.languages', 'global')
 	const { width } = useWindowSize()
 	return (
@@ -26,11 +28,14 @@ const Header = () => {
 					<div className={scss.header_search}>
 						<nav className={scss.nav_items}>
 							{Array.isArray(menuItems) &&
-								menuItems?.map(item => (
-									<Link href={item.href} key={item.title}>
-										{item.title}
-									</Link>
-								))}
+								menuItems?.map(item => {
+									const href = pathname === '/' ? item.href : `/${item.href}`
+									return (
+										<Link href={href} key={item.title}>
+											{item.title}
+										</Link>
+									)
+								})}
 						</nav>
 						<div className={scss.end}>
 							<div className={scss.header_input}>
@@ -44,9 +49,7 @@ const Header = () => {
 									placeholder={`${$t('header.searchPlaceholder', 'global')}...`}
 								/>
 							</div>
-							{width <= 900 && (
-								<HeaderMenu menuItems={menuItems} languages={languages} />
-							)}
+							<HeaderMenu menuItems={menuItems} languages={languages} />
 							<Dropdown
 								pt={width <= 1400 ? 'default' : 'centered'}
 								isOutsideClick
@@ -59,7 +62,7 @@ const Header = () => {
 										onClick={toggle}
 										ref={ref}
 									>
-										<span>{language}</span>
+										{language}
 									</button>
 								)}
 							>

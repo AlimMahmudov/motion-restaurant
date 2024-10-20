@@ -1,10 +1,10 @@
 export default {
 	header: {
 		menu: [
-			{ title: 'Интерьер', href: '/#interior' },
-			{ title: 'Биз жонундо', href: '/#about_us' },
+			{ title: 'Интерьер', href: '#interior' },
+			{ title: 'Биз жонундо', href: '#about_us' },
 			{ title: 'Меню', href: '/menu' },
-			{ title: 'Байланыштар', href: '/#contacts' }
+			{ title: 'Байланыштар', href: '#contacts' }
 		],
 		languages: ['EN - Англисче', 'RU - Орусча', 'KG - Кыргызча'],
 		searchPlaceholder: 'Издөө'

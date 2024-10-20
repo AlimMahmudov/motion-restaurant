@@ -8,7 +8,7 @@ import scss from './Visit.module.scss'
 const Visit = () => {
 	const { $t, language } = useLanguageStore()
 	return (
-		<div id='contacts' data-scrool='true'>
+		<section id='contacts'>
 			<div className='container'>
 				<div className={`${scss.visit} ${scss[language]}`}>
 					<div className={scss.visit_text}>
@@ -113,7 +113,7 @@ const Visit = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 
