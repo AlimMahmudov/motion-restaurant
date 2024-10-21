@@ -18,14 +18,16 @@ const Visit = memo(() => {
 							<h1>{$t('homeSections.visit.visit_restaurant', 'global')}</h1>
 						</div>
 						<h1 data-h1>{$t('homeSections.visit.join_us', 'global')}</h1>
-						<div className={scss.visit_your}>
-							<h2>{$t('homeSections.visit.your_neighborhood', 'global')}</h2>
-							<h3>{$t('homeSections.visit.address', 'global')}</h3>
-						</div>
-						<div className={scss.visit_your}>
-							<h2>{$t('homeSections.visit.opening_hours', 'global')}</h2>
-							<h3>{$t('homeSections.visit.mon_thu', 'global')}</h3>
-							<h3>{$t('homeSections.visit.fri_sun', 'global')}</h3>
+						<div className={`${scss.rowOrCol} flexCol`}>
+							<div className={scss.visit_your}>
+								<h2>{$t('homeSections.visit.your_neighborhood', 'global')}</h2>
+								<h3>{$t('homeSections.visit.address', 'global')}</h3>
+							</div>
+							<div className={scss.visit_your}>
+								<h2>{$t('homeSections.visit.opening_hours', 'global')}</h2>
+								<h3>{$t('homeSections.visit.mon_thu', 'global')}</h3>
+								<h3>{$t('homeSections.visit.fri_sun', 'global')}</h3>
+							</div>
 						</div>
 						<button className={`${scss.visit_button} inlineFlexCenter`}>
 							<span>
