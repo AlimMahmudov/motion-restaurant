@@ -8,11 +8,13 @@ interface DropdownTrigger {
 	state: boolean
 	ref: React.MutableRefObject<any>
 }
+interface IChildrenToProps {
+	onClose(): void
+}
 
-interface IDropdownProps extends IChildren {
+interface IDropdownProps extends IChildrenToFunc<IChildrenToProps> {
 	trigger(props: DropdownTrigger): JSX.Element
 	isOutsideClick?: boolean
-	internalClick?: boolean
 	className?: string
 	pt?: 'centered' | 'default'
 }
@@ -22,7 +24,6 @@ const Dropdown: React.FC<IDropdownProps> = memo(props => {
 		className,
 		trigger,
 		isOutsideClick = false,
-		internalClick = true,
 		children,
 		pt = 'default'
 	} = props
@@ -33,7 +34,6 @@ const Dropdown: React.FC<IDropdownProps> = memo(props => {
 			set(false)
 		}
 	}, ref)
-	const _internalClick = () => internalClick && set(false)
 	const contentEl = useRef<HTMLDivElement>(null)
 	const anchorEl = useRef<any>(null)
 	const contentSize = useSize(contentEl)
@@ -58,10 +58,9 @@ const Dropdown: React.FC<IDropdownProps> = memo(props => {
 					active: state
 				})}
 				data-content='true'
-				onClick={_internalClick}
 				ref={contentEl}
 			>
-				{children}
+				{children({ onClose: () => set(false) })}
 			</div>
 		</div>
 	)

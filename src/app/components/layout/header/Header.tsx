@@ -66,23 +66,26 @@ const Header = () => {
 									</button>
 								)}
 							>
-								<ul className={scss.languages}>
-									{Array.isArray(languages) &&
-										languages?.map((item, idx) => {
-											const lang = item.split(' - ')[0]?.toLowerCase()
-											return (
-												<li key={`${item}${idx}`}>
-													<button
-														onClick={() => {
-															setLanguage(lang as TypeLanguage)
-														}}
-													>
-														{item}
-													</button>
-												</li>
-											)
-										})}
-								</ul>
+								{({ onClose }) => (
+									<ul className={scss.languages}>
+										{Array.isArray(languages) &&
+											languages?.map((item, idx) => {
+												const lang = item.split(' - ')[0]?.toLowerCase()
+												return (
+													<li key={`${item}${idx}`}>
+														<button
+															onClick={() => {
+																setLanguage(lang as TypeLanguage)
+																onClose()
+															}}
+														>
+															{item}
+														</button>
+													</li>
+												)
+											})}
+									</ul>
+								)}
 							</Dropdown>
 						</div>
 					</div>
