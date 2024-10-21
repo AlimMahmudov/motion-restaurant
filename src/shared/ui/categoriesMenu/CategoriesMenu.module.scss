@@ -10,6 +10,19 @@
 		min-width: 350px;
 	}
 
+	&.mainmenu {
+		@media (max-width: 540px) {
+			max-width: 400px;
+			min-width: 400px;
+		}
+		li {
+			padding: 14px 72px;
+			span,
+			a {
+				font-size: 28px;
+			}
+		}
+	}
 	&.ourmenu {
 		@media (max-width: 1100px) {
 			min-width: 100%;
@@ -25,7 +38,8 @@
 			}
 
 			li {
-				span {
+				span,
+				a {
 					width: 100%;
 					border: none;
 					text-wrap: nowrap;
@@ -38,7 +52,8 @@
 			li {
 				padding: 10px 52px;
 
-				span {
+				span,
+				a {
 					font-size: 22px;
 				}
 			}
@@ -48,7 +63,8 @@
 			li {
 				padding: 8px 42px;
 
-				span {
+				span,
+				a {
 					font-size: 20px;
 				}
 			}
@@ -58,7 +74,8 @@
 			li {
 				padding: 6px 32px;
 
-				span {
+				span,
+				a {
 					font-size: 18px;
 				}
 			}
@@ -92,14 +109,16 @@
 
 			background: #ef272c;
 
-			span {
+			span,
+			a {
 				border-bottom: none;
 				color: white;
 				border-color: white;
 			}
 		}
 
-		span {
+		span,
+		a {
 			display: inline-block;
 			font-family: var(--silkSerif);
 			font-size: 24px;

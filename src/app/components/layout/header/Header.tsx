@@ -23,9 +23,9 @@ const Header = memo(() => {
 		<header id={scss.Header}>
 			<div className='container'>
 				<div className={scss.header}>
-					<div className={scss.header_logo}>
+					<Link href="/" className={scss.header_logo}>
 						<h1>Restaurant</h1>
-					</div>
+					</Link>
 					<div className={scss.header_search}>
 						<nav className={scss.nav_items}>
 							{Array.isArray(menuItems) &&

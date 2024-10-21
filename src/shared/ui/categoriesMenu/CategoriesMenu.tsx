@@ -2,6 +2,7 @@
 import React, { memo } from 'react'
 import scss from './CategoriesMenu.module.scss'
 import clsx from 'clsx'
+import Link from 'next/link'
 
 interface ICategoriesMenuProps {
 	activeCategory: string
@@ -11,10 +12,17 @@ interface ICategoriesMenuProps {
 		title: string
 	}[]
 	type?: string
+	isLink?: boolean
 }
 
 const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
-	({ changeActiveCategory, activeCategory, categories, type }) => {
+	({
+		changeActiveCategory,
+		activeCategory,
+		categories,
+		type,
+		isLink = false
+	}) => {
 		return (
 			<ul className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
 				{Array.isArray(categories) &&
@@ -23,10 +31,16 @@ const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
 							key={el.id}
 							onClick={() => changeActiveCategory(el.id)}
 							className={clsx('flexCenter', {
-								[scss.active]: activeCategory === el.id
+								[scss.active]: !isLink && activeCategory === el.id
 							})}
 						>
-							<span>{el.title}</span>
+							{isLink ? (
+								<Link href={`/menu?category_id=${el.id}`}>
+									{el.title}
+								</Link>
+							) : (
+								<span>{el.title}</span>
+							)}
 						</li>
 					))}
 			</ul>
