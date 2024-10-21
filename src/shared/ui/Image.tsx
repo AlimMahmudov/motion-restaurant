@@ -3,7 +3,7 @@
 
 import clsx from 'clsx'
 import Image from 'next/image'
-import React, { memo, useCallback, useState } from 'react'
+import React, { memo, useCallback, useMemo, useState } from 'react'
 
 interface ImageProps {
 	url: string
@@ -27,12 +27,14 @@ const CImage: React.FC<ImageProps> = memo(
 			setIsLoading(false)
 		}, [])
 
-		const formattedUrl = (() => {
+		const formattedUrl = useMemo(() => {
 			if (url.startsWith('http://') || url.startsWith('https://')) {
 				return url
+			} else if (typeof window !== 'undefined') {
+				return `${window.location.origin}${url}`
 			}
-			return `${window.location.origin}${url}`
-		})()
+			return ''
+		}, [url])
 
 		return (
 			<div
