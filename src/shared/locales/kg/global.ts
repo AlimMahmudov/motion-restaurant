@@ -69,5 +69,16 @@ export default {
 			purchase_gift_card: 'Белек картасын сатып алуу',
 			contact_info: 'Байланыш маалыматтары'
 		}
+	},
+	'ryt-form': {
+		name: {
+			'input-placeholder': 'Атыңызды жазыңыз',
+			label: 'АТЫҢЫЗ'
+		},
+		phone: {
+			'input-placeholder': 'Телефон номериңизди жазыңыз',
+			label: 'ТЕЛЕФОН'
+		},
+		submit: 'Байланыш'
 	}
 }
