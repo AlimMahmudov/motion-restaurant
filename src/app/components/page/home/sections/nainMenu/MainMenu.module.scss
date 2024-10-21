@@ -1,95 +1,110 @@
 .MainMenu {
-	padding-top: 31px;
-	padding-bottom: 61px;
-	color: #ffffff;
+  padding-top: 31px;
+  padding-bottom: 61px;
+  color: #ffffff;
 
-	.MainMenu__inner {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 64px;
-		gap: 50px;
+  .MainMenu__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 64px;
+    gap: 50px;
 
-		.view_full_menu {
-			gap: 10px;
+    .view_full_menu {
+      gap: 10px;
+      color: white;
+      padding: 10px 30px;
+      border-radius: 2px;
+      border: solid 1px #ef272c;
+      transition: all 0.15s;
+      position: relative;
+      span {
+        font-family: var(--spartan);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 13.44px;
+      }
+      &:hover {
+        background: #ef272c;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background-color: #ef272c;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        background-color: #ef272c;
+      }
+    }
+    .FoodItems {
+      max-width: 657px;
+      margin: 0 40px;
+      .foodItems__content {
+        margin-bottom: 46px;
 
-			color: white;
-			padding: 10px 30px;
-			border-radius: 2px;
-			border: solid 1px #ef272c;
-			transition: all 0.15s;
-			position: relative;
-			span {
-				font-family: var(--spartan);
-				font-size: 14px;
-				font-weight: 600;
-				line-height: 13.44px;
-			}
-			&:hover {
-				background: #ef272c;
-			}
-			&::after {
-				content: '';
-				position: absolute;
-				top: -10px;
-				left: 10%;
-				width: 80%;
-				height: 2px;
-				background-color: #ef272c;
-			}
-			&::before {
-				content: '';
-				position: absolute;
-				bottom: -10px;
-				left: 10%;
-				width: 80%;
-				height: 2px;
-				background-color: #ef272c;
-			}
-		}
-		.FoodItems {
-			min-width: 657px;
-			max-width: 657px;
-			margin: 0 40px;
-			.foodItems__content {
-				margin-bottom: 46px;
+        .foodItems__content__top {
+          display: flex;
+          justify-content: space-between;
+          font-family: var(--silkSerif);
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 30.68px;
+          text-align: left;
+          margin-bottom: 13px;
 
-				.foodItems__content__top {
-					display: flex;
-					justify-content: space-between;
-					font-family: var(--silkSerif);
-					font-size: 20px;
-					font-weight: 600;
-					line-height: 30.68px;
-					text-align: left;
-					margin-bottom: 13px;
+          span {
+            color: red;
+          }
+        }
 
-					span {
-						color: red;
-					}
-				}
+        p {
+          font-family: var(--spartan);
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+          max-width: 412px;
+        }
 
-				p {
-					font-family: var(--spartan);
-					font-size: 14px;
-					font-weight: 400;
-					line-height: 20px;
-					max-width: 412px;
-				}
+        .foodItems__button {
+          display: flex;
+          justify-content: flex-end;
 
-				.foodItems__button {
-					display: flex;
-					justify-content: flex-end;
-
-					button {
-						font-family: var(--silkSerif);
-						font-size: 16px;
-						font-weight: 600;
-						line-height: 20px;
-						text-decoration: underline;
-						text-underline-offset: 6px;
-					}
-				}
-			}
-		}
-	}
+          button {
+            font-family: var(--silkSerif);
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20px;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    .MainMenu__inner {
+      flex-direction: column;
+      align-items: center;
+    }
+    .view_full_menu {
+      display: block;
+    }
+  }
+  @media (max-width: 540px) {
+    .foodItems__content {
+      display: none;
+    }
+    .view_full_menu {
+      display: block;
+    }
+  }
 }
