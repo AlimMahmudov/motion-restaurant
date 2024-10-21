@@ -24,26 +24,24 @@ const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
 		isLink = false
 	}) => {
 		return (
-			<ul className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
+			<div className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
 				{Array.isArray(categories) &&
 					categories.map(el => (
-						<li
+						<div
 							key={el.id}
 							onClick={() => changeActiveCategory(el.id)}
-							className={clsx('flexCenter', {
+							className={clsx(scss.item, 'flexCenter', {
 								[scss.active]: !isLink && activeCategory === el.id
 							})}
 						>
 							{isLink ? (
-								<Link href={`/menu?category_id=${el.id}`}>
-									{el.title}
-								</Link>
+								<Link href={`/menu?category_id=${el.id}`}>{el.title}</Link>
 							) : (
 								<span>{el.title}</span>
 							)}
-						</li>
+						</div>
 					))}
-			</ul>
+			</div>
 		)
 	}
 )
