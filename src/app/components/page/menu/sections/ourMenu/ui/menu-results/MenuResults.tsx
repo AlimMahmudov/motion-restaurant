@@ -10,6 +10,8 @@ import MenuCard from "../menu-card/MenuCard";
 interface IMenuResultsProps {
   foodItems: typeof foodItems;
 }
+
+// Перед изминиением написать в telegram
 const MenuResults: React.FC<IMenuResultsProps> = memo(({ foodItems }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const changeActiveMI = (id: string) => {
