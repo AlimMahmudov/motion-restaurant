@@ -10,6 +10,8 @@ import SectionTitles from '@/shared/ui/title/SectionTitle'
 import { motion } from 'framer-motion'
 import useWindowSize from '@/shared/hooks/useWindowSize'
 
+
+// Перед изминиением написать в telegram
 const MainMenu = memo(() => {
 	const { $t } = useLanguageStore()
 	const categories = $t<{ id: string; title: string }[]>(
