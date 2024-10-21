@@ -1,50 +1,49 @@
-@import 'utilities';
-@import 'variables';
-@import 'fonts';
+@import "utilities";
+@import "variables";
+@import "fonts";
 * {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-
-	font-family: var(--silkSerif);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--silkSerif);
 }
 
 body {
-	background: #1b2026;
-	&::-webkit-scrollbar{
-		width: 0;
-	}
+  background: #1b2026;
+  &::-webkit-scrollbar {
+    width: 0;
+  }
 }
 
 html {
-	scroll-behavior: smooth;
-	height: 100%;
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
 *:disabled {
-	pointer-events: none;
-	opacity: 0.6;
+  pointer-events: none;
+  opacity: 0.6;
 }
 .container {
-	max-width: 1280px;
-	width: 100%;
-	margin: 0 auto;
-	padding: 0 20px;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 button {
-	background: transparent;
-	border: none;
-	padding: 0;
-	cursor: pointer;
-	color: #ffffff;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #ffffff;
 }
 
 ul {
-	padding: 0;
-	list-style: none;
+  padding: 0;
+  list-style: none;
 }
 
 a {
-	text-decoration: none;
+  text-decoration: none;
 }

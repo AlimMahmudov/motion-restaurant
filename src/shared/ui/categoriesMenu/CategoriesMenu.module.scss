@@ -1,55 +1,53 @@
 .CategoriesMenu {
-	background: #1f2731;
-	flex-grow: 1;
-	height: fit-content;
-	max-width: 400px;
-	min-width: 400px;
+  background: #1f2731;
+  flex-grow: 1;
+  height: fit-content;
+  max-width: 400px;
+  ul {
+    li {
+      cursor: pointer;
+      text-align: center;
+      padding: 0px 62px;
+      transition: all 0.25s;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -7%;
+        background: #fff;
+        width: 70px;
+        height: 1px;
+        transition: all 0.25s;
+        transform: rotateY(90deg);
+        transform-origin: left;
+      }
+      &.active {
+        &::after {
+          width: 70px;
+          transform: rotateY(0);
+        }
+        background: #ef272c;
+        span {
+          border-bottom: none;
+        }
+      }
 
-	ul {
-		li {
-			cursor: pointer;
-			text-align: center;
-			padding: 0px 62px;
-			transition: all 0.25s;
-			position: relative;
-			&::after {
-				content: '';
-				position: absolute;
-				top: 50%;
-				right: -7%;
-				background: #fff;
-				width: 70px;
-				height: 1px;
-				transition: all 0.25s;
-				transform: rotateY(90deg);
-				transform-origin: left;
-			}
-			&.active {
-				&::after {
-					width: 70px;
-					transform: rotateY(0);
-				}
-				background: #ef272c;
-				span {
-					border-bottom: none;
-				}
-			}
+      span {
+        display: block;
+        font-family: var(--silkSerif);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 36.82px;
+        text-align: center;
+        padding-top: 8px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e5e5e5;
+      }
 
-			span {
-				display: block;
-				font-family: var(--silkSerif);
-				font-size: 24px;
-				font-weight: 600;
-				line-height: 36.82px;
-				text-align: center;
-				padding-top: 8px;
-				padding-bottom: 12px;
-				border-bottom: 1px solid #e5e5e5;
-			}
-
-						span:last-child {
-				margin-bottom: 9px;
-			}
-		}
-	}
+      span:last-child {
+        margin-bottom: 9px;
+      }
+    }
+  }
 }
