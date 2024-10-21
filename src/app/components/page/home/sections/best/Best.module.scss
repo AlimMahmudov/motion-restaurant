@@ -1,110 +1,108 @@
 .best {
-  padding: 50px;
-  color: #ffffff;
-  .best_sellers {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+	padding: 50px;
+	color: #ffffff;
+	.best_sellers {
+		display: flex;
+		align-items: center;
+		gap: 10px;
 
-    h1 {
-      font-family: "Shalimar", cursive;
-      font-family: Shalimar;
-      font-size: 40px;
-      font-weight: 400;
-      line-height: 48.8px;
-    }
-  }
+		h4 {
+			font-family: 'Shalimar', cursive;
+			font-family: Shalimar;
+			font-size: 40px;
+			font-weight: 400;
+			line-height: 48.8px;
+		}
+	}
 
-  .best_block {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+	.best_block {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
-    .best_text {
-      h1 {
-        width: 320px;
-        height: 122px;
-        font-family: Silk Serif;
-        font-size: 40px;
-        font-weight: 600;
-        line-height: 61.36px;
-      }
-      p {
-        width: 447px;
-        height: 72px;
-        font-family: Spartan;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
-      }
-    }
+		.best_text {
+			h4 {
+				width: 320px;
+				height: 122px;
+				font-family: Silk Serif;
+				font-size: 40px;
+				font-weight: 600;
+				line-height: 61.36px;
+			}
+			p {
+				width: 447px;
+				height: 72px;
+				font-family: Spartan;
+				font-size: 16px;
+				font-weight: 400;
+				line-height: 24px;
+			}
+		}
 
-    .best_image {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-  }
+		.best_image {
+			display: flex;
+			align-items: center;
+			gap: 20px;
+		}
+	}
 }
 
 @media (max-width: 480px) {
-  .best {
-    padding: 100px 0;
-    width: 100%;
-    color: #ffffff;
-    .best_sellers {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+	.best {
+		padding: 100px 0;
+		width: 100%;
+		color: #ffffff;
+		.best_sellers {
+			display: flex;
+			align-items: center;
+			gap: 10px;
 
-      h1 {
-        font-family: "Shalimar", cursive;
-        font-family: Shalimar;
-        font-size: 25px;
-        font-weight: 400;
-        line-height: 48.8px;
-      }
-    }
+			h4 {
+				font-size: 35px;
+				font-weight: 400;
+				line-height: 48.8px;
+			}
+		}
 
-    .best_block {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: column;
-      gap: 20px;
+		.best_block {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-direction: column;
+			gap: 20px;
 
-      .best_text {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        h1 {
-          width: 70%;
-          height: 100%;
-          font-family: Silk Serif;
-          font-size: 24px;
-          font-weight: 600;
-          line-height: 35.36px;
-        }
-        p {
-          width: 80%;
-          height: 72px;
-          font-family: Spartan;
-          font-size: 16px;
-          font-weight: 400;
-          line-height: 24px;
-          margin-top: 10px;
-        }
-      }
+			.best_text {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				h4 {
+					width: 70%;
+					height: 100%;
+					font-family: Silk Serif;
+					font-size: 24px;
+					font-weight: 600;
+					line-height: 35.36px;
+				}
+				p {
+					width: 80%;
+					height: 72px;
+					font-family: Spartan;
+					font-size: 16px;
+					font-weight: 400;
+					line-height: 24px;
+					margin-top: 10px;
+				}
+			}
 
-      .best_image {
-        display: flex;
-        width: 100%;
-        // flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        overflow-x: scroll;
-        margin-top: 20px;
-      }
-    }
-  }
+			.best_image {
+				display: flex;
+				width: 100%;
+				// flex-direction: column;
+				align-items: center;
+				gap: 20px;
+				overflow-x: scroll;
+				margin-top: 20px;
+			}
+		}
+	}
 }
