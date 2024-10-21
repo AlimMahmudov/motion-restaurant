@@ -17,6 +17,13 @@ const About = () => {
           <div className={scss.about_block}>
             <div className={scss.about_box}>
               <h1>A Journey Throught Cafesio Flavors</h1>
+              <h4>
+                {" "}
+                Try dishes that will open up new tastes for you and delight your
+                eyes with their appearance. Here you will find a cozy
+                atmosphere, excellent service and attention to each guest. Book
+                a table now and enjoy a unique experience of taste discovery!
+              </h4>
               <Image src={img15} alt="img" />
             </div>
             <div className={scss.about_box}>

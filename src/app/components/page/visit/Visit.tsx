@@ -11,7 +11,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 const Visit = () => {
   return (
-    <div>
+    <div id={scss.visit}>
       <div className="container">
         <div className={scss.visit}>
           <div className={scss.visit_text}>
@@ -51,7 +51,12 @@ const Visit = () => {
                 <AiFillInstagram />
               </h1>
             </div>
-            <Image src={map} alt="img" />
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.670201784028!2d74.58255517621372!3d42.879804671149365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec9ba3daadfbb%3A0x4e7a5fa037f5fd93!2sMotion%20Web%20IT%20academy!5e0!3m2!1sru!2skg!4v1729330135293!5m2!1sru!2skg"
+              width="500"
+              height="300"
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </div>

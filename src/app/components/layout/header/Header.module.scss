@@ -1,7 +1,8 @@
 #Header {
+  position: fixed;
+  width: 100%;
+
   background: #1b2026;
-  // position: fixed;
-  // width: 100%;
 
   .header {
     display: flex;
@@ -22,6 +23,22 @@
       align-items: center;
       gap: 60px;
       color: #ffffff;
+      .nav {
+        ul {
+          .link {
+            display: flex;
+            align-items: center;
+            a {
+              font-family: Spartan;
+              font-size: 16px;
+              font-weight: 500;
+              line-height: 17.92px;
+              color: white;
+              text-decoration: none;
+            }
+          }
+        }
+      }
 
       a {
         font-family: Spartan;

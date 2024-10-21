@@ -12,9 +12,9 @@ const HomePage = () => {
       <Hero />
       <About />
       <Best />
-      <MainMenu />
-      <ModernInterior />
-      <Visit />
+      {/* <MainMenu /> */}
+      {/* <ModernInterior /> */}
+      {/* <Visit /> */}
     </>
   );
 };
