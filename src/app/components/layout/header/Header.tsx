@@ -1,6 +1,5 @@
 'use client'
 import { useLanguageStore } from '@/shared/stores/language-store'
-import Dropdown from '@/shared/ui/Dropdown'
 import clsx from 'clsx'
 import { CiSearch } from 'react-icons/ci'
 import scss from './Header.module.scss'
@@ -11,7 +10,7 @@ import { usePathname } from 'next/navigation'
 import { memo } from 'react'
 
 const Header = memo(() => {
-	const { $t, language, setLanguage } = useLanguageStore()
+	const { $t, language } = useLanguageStore()
 	const menuItems = $t<Record<'title' | 'href', string>[]>(
 		'header.menu',
 		'global'
@@ -51,43 +50,11 @@ const Header = memo(() => {
 								/>
 							</div>
 							<HeaderMenu menuItems={menuItems} languages={languages} />
-							<Dropdown
-								pt={width <= 1400 ? 'default' : 'centered'}
-								isOutsideClick
-								className={clsx(scss.dropdown, {
-									[scss.add]: width <= 1400
-								})}
-								trigger={({ toggle, ref }) => (
-									<button
-										className={clsx(scss.trigger_btn)}
-										onClick={toggle}
-										ref={ref}
-									>
-										{language}
-									</button>
-								)}
+							<button
+								className={clsx(scss.trigger_btn)}
 							>
-								{({ onClose }) => (
-									<ul className={scss.languages}>
-										{Array.isArray(languages) &&
-											languages?.map((item, idx) => {
-												const lang = item.split(' - ')[0]?.toLowerCase()
-												return (
-													<li key={`${item}${idx}`}>
-														<button
-															onClick={() => {
-																setLanguage(lang as TypeLanguage)
-																onClose()
-															}}
-														>
-															{item}
-														</button>
-													</li>
-												)
-											})}
-									</ul>
-								)}
-							</Dropdown>
+								{language}
+							</button>
 						</div>
 					</div>
 				</div>
