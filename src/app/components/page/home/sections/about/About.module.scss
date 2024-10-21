@@ -76,6 +76,7 @@
 			}
 
 			@media (max-width: 600px) {
+				display: flex !important;
 				flex-direction: column;
 				img {
 					height: 360px;

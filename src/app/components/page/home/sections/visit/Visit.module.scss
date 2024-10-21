@@ -186,14 +186,14 @@
 		}
 		@media (max-width: 480px) {
 			padding: 0;
-
+			width: 100%;
 			h1,
 			a.t,
 			.links {
 				display: none;
 			}
 			.map {
-				width: 445px;
+				width: 100%;
 				height: 400px;
 			}
 		}
