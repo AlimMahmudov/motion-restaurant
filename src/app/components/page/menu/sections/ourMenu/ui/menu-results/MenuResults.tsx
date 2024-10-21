@@ -12,6 +12,16 @@ interface IMenuResultsProps {
 }
 
 // Перед изминиением написать в telegram
+// если исползуете @tansktack/react-query - то в layout.client.tsx добавьте провайдер QueryClientProvider и передав пропс client
+// эту часть кода добавить в shared/config/query-client.ts
+//const client = new QueryClient({
+//        defaultOptions: {
+//                queries: {
+//                        refetchOnWindowFocus: false,
+//                        retry: 0
+//                }
+//        }
+//})
 const MenuResults: React.FC<IMenuResultsProps> = memo(({ foodItems }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const changeActiveMI = (id: string) => {
