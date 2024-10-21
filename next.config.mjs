@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
 	images: {
 		remotePatterns: [
@@ -12,10 +11,6 @@ const nextConfig = {
 				protocol: 'http'
 			}
 		]
-	},
-	i18n: {
-		defaultLocale: 'en',
-		locales: ['en', 'ru', 'kg']
 	}
 }
 

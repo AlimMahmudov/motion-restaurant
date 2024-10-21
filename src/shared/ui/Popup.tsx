@@ -28,7 +28,7 @@ export const Popup: React.FC<IProps> = memo(props => {
 			{open && blur_bg && <div onClick={onClose} className={clsx('blur-bg')} />}
 
 			<div className={clsx('popup animate', className, { active: open })}>
-				<div className='popup_body'>
+				<div data-popupbody className='popup_body'>
 					<button
 						onClick={onClose}
 						className={clsx('inlineFlexCenter close-popup')}

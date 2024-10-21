@@ -30,7 +30,7 @@
 			transition: all 0.15s;
 			position: relative;
 			text-transform: uppercase;
-			span {
+			h3 {
 				font-family: var(--spartan);
 				font-size: 14px;
 				font-weight: 600;
@@ -94,7 +94,7 @@
 					text-align: left;
 					margin-bottom: 13px;
 
-					span {
+					h4 {
 						color: red;
 					}
 				}

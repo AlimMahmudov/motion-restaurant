@@ -45,8 +45,8 @@ const ActiveMenuItem: React.FC<IActiveMenuItemProps> = memo(
             <h4>Extras</h4>
             {extras.map(({ name, price }) => (
               <div className={scss["row"]} key={name}>
-                <span>{name}</span>
-                <span>${price.toFixed(2)}</span>
+                <h3>{name}</h3>
+                <h3>${price.toFixed(2)}</h3>
               </div>
             ))}
           </div>
@@ -54,8 +54,8 @@ const ActiveMenuItem: React.FC<IActiveMenuItemProps> = memo(
             <h4>Drinks</h4>
             {drinks.map(({ name, price }) => (
               <div className={scss["row"]} key={name}>
-                <span>{name}</span>
-                <span>${price.toFixed(2)}</span>
+                <h3>{name}</h3>
+                <h3>${price.toFixed(2)}</h3>
               </div>
             ))}
           </div>

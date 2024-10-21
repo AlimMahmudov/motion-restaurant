@@ -24,10 +24,10 @@ const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
 		isLink = false
 	}) => {
 		return (
-			<div className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
+			<ul className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
 				{Array.isArray(categories) &&
 					categories.map(el => (
-						<div
+						<li
 							key={el.id}
 							onClick={() => changeActiveCategory(el.id)}
 							className={clsx(scss.item, 'flexCenter', {
@@ -39,9 +39,9 @@ const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
 							) : (
 								<span>{el.title}</span>
 							)}
-						</div>
+						</li>
 					))}
-			</div>
+			</ul>
 		)
 	}
 )

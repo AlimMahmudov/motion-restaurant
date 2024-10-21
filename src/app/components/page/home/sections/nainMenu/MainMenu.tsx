@@ -10,7 +10,6 @@ import SectionTitles from '@/shared/ui/title/SectionTitle'
 import { motion } from 'framer-motion'
 import useWindowSize from '@/shared/hooks/useWindowSize'
 
-
 // Перед изминиением написать в telegram
 const MainMenu = memo(() => {
 	const { $t } = useLanguageStore()
@@ -83,7 +82,7 @@ const MainMenu = memo(() => {
 									{Array.from({
 										length: width <= 750 ? 40 : width <= 650 ? 30 : 60
 									}).map(() => '•')}
-									<span>{el.price}</span>
+									<h4>{el.price}</h4>
 								</div>
 								<p>{el.description}</p>
 								<div className={scss.foodItems__button}>
@@ -98,12 +97,10 @@ const MainMenu = memo(() => {
 								href={`/menu?category_id=${activeCategory}`}
 								className={`${scss.view_full_menu} inlineFlexCenter`}
 							>
-								<span>
-									{$t('homeSections.mainmenu.viewfullmenu', 'global')}
-								</span>
-								<span className='inlineFlexCenter'>
+								<h3>{$t('homeSections.mainmenu.viewfullmenu', 'global')}</h3>
+								<h4 className='inlineFlexCenter'>
 									<FaArrowRightLong />
-								</span>
+								</h4>
 							</Link>
 						</div>
 					</div>
