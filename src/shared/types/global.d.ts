@@ -2,8 +2,11 @@ interface IChildren {
 	children: React.ReactNode
 }
 
-type TypeLanguage = 'en' | 'ru' | 'kg'
+interface IChildrenToFunc<T> {
+	children: (props: T) => React.ReactNode
+}
 
+type TypeLanguage = 'en' | 'ru' | 'kg'
 
 type PageProps<
 	P extends string[] = string[],

@@ -40,7 +40,7 @@ const Hero = () => {
 						<h3>{$t('homeSections.hero.location.header', 'global')}</h3>
 						<div className={scss.line}></div>
 
-						<p>
+						<p className='inlineFlexCenter'>
 							<span>
 								<FaLocationDot />
 							</span>
@@ -52,7 +52,7 @@ const Hero = () => {
 						<h3>{$t('homeSections.hero.hotline.header', 'global')}</h3>
 						<div className={scss.line}></div>
 
-						<p>
+						<p className='inlineFlexCenter'>
 							<span>
 								<FaPhoneFlip />
 							</span>

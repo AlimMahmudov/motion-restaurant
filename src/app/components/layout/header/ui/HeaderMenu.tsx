@@ -17,7 +17,7 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = ({ menuItems, languages }) => {
 	useClickAway(() => {
 		if (width <= 900) set(false)
 	}, ref)
-	const _internalClick = () => set(false)
+	const onClose = () => set(false)
 
 	return (
 		<div className={clsx('relative inlineFlexCenter', scss.header_menu)}>
@@ -66,12 +66,11 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = ({ menuItems, languages }) => {
 				className={clsx(scss.content, 'absolute animate transform-yb', {
 					active: state
 				})}
-				onClick={_internalClick}
 			>
 				<nav className={scss.nav_items}>
 					{Array.isArray(menuItems) &&
 						menuItems?.map(item => (
-							<Link href={item.href} key={item.title}>
+							<Link onClick={onClose} href={item.href} key={item.title}>
 								{item.title}
 							</Link>
 						))}
@@ -83,7 +82,10 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = ({ menuItems, languages }) => {
 							return (
 								<li key={`${item}${idx}`}>
 									<button
-										onClick={() => setLanguage(lang as TypeLanguage)}
+										onClick={() => {
+											setLanguage(lang as TypeLanguage)
+											onClose()
+										}}
 										className={clsx({
 											[scss.active]: language == lang
 										})}
