@@ -44,7 +44,7 @@ const MainMenu = memo(() => {
 		return uniqueItems as typeof foodItems
 	}, [activeCategory])
 
-	const is540 = width <= 540
+	const is800 = width <= 800
 
 	return (
 		<section className={scss.MainMenu}>
@@ -58,8 +58,8 @@ const MainMenu = memo(() => {
 				/>
 				<div className={scss.MainMenu__inner}>
 					<CategoriesMenu
-						isLink={is540}
-						type={is540 ? 'mainmenu' : 'ourmenu'}
+						isLink={is800}
+						type={is800 ? 'mainmenu' : 'ourmenu'}
 						categories={categories}
 						activeCategory={activeCategory}
 						changeActiveCategory={changeActiveCategory}
@@ -81,7 +81,6 @@ const MainMenu = memo(() => {
 									{Array.from({
 										length: width <= 750 ? 40 : width <= 650 ? 30 : 60
 									}).map(() => '•')}
-									<i></i>
 									<span>{el.price}</span>
 								</div>
 								<p>{el.description}</p>
@@ -92,15 +91,19 @@ const MainMenu = memo(() => {
 								</div>
 							</motion.div>
 						))}
-						<Link
-							href={`/menu?category_id=${activeCategory}`}
-							className={`${scss.view_full_menu} inlineFlexCenter`}
-						>
-							<span>{$t('homeSections.mainmenu.viewfullmenu', 'global')}</span>
-							<span className='inlineFlexCenter'>
-								<FaArrowRightLong />
-							</span>
-						</Link>
+						<div data-link className='flexCenter'>
+							<Link
+								href={`/menu?category_id=${activeCategory}`}
+								className={`${scss.view_full_menu} inlineFlexCenter`}
+							>
+								<span>
+									{$t('homeSections.mainmenu.viewfullmenu', 'global')}
+								</span>
+								<span className='inlineFlexCenter'>
+									<FaArrowRightLong />
+								</span>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</div>
