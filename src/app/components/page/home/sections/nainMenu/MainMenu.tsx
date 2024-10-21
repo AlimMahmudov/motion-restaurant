@@ -2,12 +2,13 @@
 import { foodItems } from '@/shared/const/foodItems'
 import { useLanguageStore } from '@/shared/stores/language-store'
 import CategoriesMenu from '@/shared/ui/categoriesMenu/CategoriesMenu'
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Link from 'next/link'
 import React, { memo, useCallback, useMemo } from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import scss from './MainMenu.module.scss'
 import SectionTitles from '@/shared/ui/title/SectionTitle'
+import { motion } from 'framer-motion'
+import useWindowSize from '@/shared/hooks/useWindowSize'
 
 const MainMenu = memo(() => {
 	const { $t } = useLanguageStore()
@@ -18,6 +19,7 @@ const MainMenu = memo(() => {
 	const [activeCategory, setActiveCategory] = React.useState<string>(
 		categories[0].id
 	)
+	const { width } = useWindowSize()
 	const changeActiveCategory = useCallback((id: string) => {
 		setActiveCategory(id)
 	}, [])
@@ -42,7 +44,7 @@ const MainMenu = memo(() => {
 		return uniqueItems as typeof foodItems
 	}, [activeCategory])
 
-	const [parent] = useAutoAnimate()
+	const is540 = width <= 540
 
 	return (
 		<section className={scss.MainMenu}>
@@ -56,16 +58,29 @@ const MainMenu = memo(() => {
 				/>
 				<div className={scss.MainMenu__inner}>
 					<CategoriesMenu
+						isLink={is540}
+						type={is540 ? 'mainmenu' : 'ourmenu'}
 						categories={categories}
 						activeCategory={activeCategory}
 						changeActiveCategory={changeActiveCategory}
 					/>
-					<div className={scss.FoodItems} ref={parent}>
-						{filteredSortedFoodItems.map(el => (
-							<div key={el.name} className={scss.foodItems__content}>
+					<div className={scss.FoodItems}>
+						{filteredSortedFoodItems.map((el, idx) => (
+							<motion.div
+								key={el.name}
+								className={scss.foodItems__content}
+								whileHover={{ scale: 1.01 }}
+								whileTap={{ scale: 1 }}
+								initial={{ opacity: 0, y: -20 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -20 }}
+								transition={{ duration: 0.2 * (idx + 1) }}
+							>
 								<div className={scss.foodItems__content__top}>
 									<h3>{el.name}</h3>
-									{Array.from({ length: 60 }).map(() => '•')}
+									{Array.from({
+										length: width <= 750 ? 40 : width <= 650 ? 30 : 60
+									}).map(() => '•')}
 									<i></i>
 									<span>{el.price}</span>
 								</div>
@@ -75,7 +90,7 @@ const MainMenu = memo(() => {
 										{$t('homeSections.mainmenu.toOrder', 'global')}
 									</button>
 								</div>
-							</div>
+							</motion.div>
 						))}
 						<Link
 							href={`/menu?category_id=${activeCategory}`}

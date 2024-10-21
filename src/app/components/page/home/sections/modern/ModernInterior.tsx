@@ -13,14 +13,11 @@ const ModernInterior = memo(() => {
 	const { $t } = useLanguageStore()
 	return (
 		<>
+			<SectionTitles
+				title={$t('homeSections.moderninterior.sectiontitles.title', 'global')}
+				subtitle=''
+			/>
 			<section id='interior' className={scss.ModernInterior}>
-				<SectionTitles
-					title={$t(
-						'homeSections.moderninterior.sectiontitles.title',
-						'global'
-					)}
-					subtitle=''
-				/>
 				<div className='container'>
 					<div className={scss.ModernInterior__inner}>
 						<div className={scss.modern__content}>

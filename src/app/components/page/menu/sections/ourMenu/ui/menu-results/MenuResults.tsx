@@ -72,7 +72,7 @@ const MenuResults: React.FC<IMenuResultsProps> = memo(({ foodItems }) => {
 							initial={{ opacity: 0, y: -20 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: -20 }}
-							transition={{ duration: 0.3 * (idx + 1) }}
+							transition={{ duration: 0.2 * (idx + 1) }}
 						>
 							<MenuCard {...item} name={name} />
 						</motion.button>
