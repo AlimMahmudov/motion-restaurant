@@ -6,8 +6,9 @@ import scss from './Hero.module.scss'
 import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
 import { FaArrowRightLong, FaLocationDot, FaPhoneFlip } from 'react-icons/fa6'
+import { memo } from 'react'
 
-const Hero = () => {
+const Hero = memo(() => {
 	const { $t } = useLanguageStore()
 
 	return (
@@ -63,6 +64,6 @@ const Hero = () => {
 			</div>
 		</section>
 	)
-}
+})
 
 export default Hero

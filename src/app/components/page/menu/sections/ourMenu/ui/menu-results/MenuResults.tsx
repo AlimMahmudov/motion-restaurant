@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useMemo, useState } from 'react'
+import React, { memo, useMemo, useState } from 'react'
 import scss from './MenuResults.module.scss'
 import { foodItems } from '@/shared/const/foodItems'
 import clsx from 'clsx'
@@ -10,7 +10,7 @@ import MenuCard from '../menu-card/MenuCard'
 interface IMenuResultsProps {
 	foodItems: typeof foodItems
 }
-const MenuResults: React.FC<IMenuResultsProps> = ({ foodItems }) => {
+const MenuResults: React.FC<IMenuResultsProps> = memo(({ foodItems }) => {
 	const [activeMenu, setActiveMenu] = useState<string | null>(null)
 	const changeActiveMI = (id: string) => {
 		setActiveMenu(id)
@@ -81,6 +81,6 @@ const MenuResults: React.FC<IMenuResultsProps> = ({ foodItems }) => {
 			)}
 		</div>
 	)
-}
+})
 
 export default MenuResults

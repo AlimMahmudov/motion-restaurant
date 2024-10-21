@@ -4,8 +4,9 @@ import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
 import { FaArrowRight } from 'react-icons/fa'
 import scss from './Visit.module.scss'
+import { memo } from 'react'
 
-const Visit = () => {
+const Visit = memo(() => {
 	const { $t, language } = useLanguageStore()
 	return (
 		<section id='contacts'>
@@ -115,6 +116,6 @@ const Visit = () => {
 			</div>
 		</section>
 	)
-}
+})
 
 export default Visit

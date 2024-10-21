@@ -8,7 +8,8 @@ import { useLanguageStore } from '@/shared/stores/language-store'
 import SectionTitles from '@/shared/ui/title/SectionTitle'
 import Image from 'next/image'
 import scss from './ModernInterior.module.scss'
-const ModernInterior = () => {
+import { memo } from 'react'
+const ModernInterior = memo(() => {
 	const { $t } = useLanguageStore()
 	return (
 		<>
@@ -51,6 +52,5 @@ const ModernInterior = () => {
 			</section>
 		</>
 	)
-}
-
+})
 export default ModernInterior

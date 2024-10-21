@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { memo } from 'react'
 import scss from './CategoriesMenu.module.scss'
 import clsx from 'clsx'
 
@@ -13,28 +13,25 @@ interface ICategoriesMenuProps {
 	type?: string
 }
 
-const CategoriesMenu: React.FC<ICategoriesMenuProps> = ({
-	changeActiveCategory,
-	activeCategory,
-	categories,
-	type
-}) => {
-	return (
-		<ul className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
-			{Array.isArray(categories) &&
-				categories.map(el => (
-					<li
-						key={el.id}
-						onClick={() => changeActiveCategory(el.id)}
-						className={clsx('flexCenter',{
-							[scss.active]: activeCategory === el.id
-						})}
-					>
-						<span>{el.title}</span>
-					</li>
-				))}
-		</ul>
-	)
-}
+const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
+	({ changeActiveCategory, activeCategory, categories, type }) => {
+		return (
+			<ul className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
+				{Array.isArray(categories) &&
+					categories.map(el => (
+						<li
+							key={el.id}
+							onClick={() => changeActiveCategory(el.id)}
+							className={clsx('flexCenter', {
+								[scss.active]: activeCategory === el.id
+							})}
+						>
+							<span>{el.title}</span>
+						</li>
+					))}
+			</ul>
+		)
+	}
+)
 
 export default CategoriesMenu

@@ -4,12 +4,12 @@ import { useLanguageStore } from '@/shared/stores/language-store'
 import CategoriesMenu from '@/shared/ui/categoriesMenu/CategoriesMenu'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Link from 'next/link'
-import React, { useMemo } from 'react'
+import React, { memo, useCallback, useMemo } from 'react'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import scss from './MainMenu.module.scss'
 import SectionTitles from '@/shared/ui/title/SectionTitle'
 
-const MainMenu = () => {
+const MainMenu = memo(() => {
 	const { $t } = useLanguageStore()
 	const categories = $t<{ id: string; title: string }[]>(
 		'homeSections.mainmenu.categories',
@@ -18,9 +18,9 @@ const MainMenu = () => {
 	const [activeCategory, setActiveCategory] = React.useState<string>(
 		categories[0].id
 	)
-	function changeActiveCategory(id: string) {
+	const changeActiveCategory = useCallback((id: string) => {
 		setActiveCategory(id)
-	}
+	}, [])
 
 	const filteredSortedFoodItems = useMemo(() => {
 		const filteredItems = foodItems.filter(
@@ -91,6 +91,6 @@ const MainMenu = () => {
 			</div>
 		</section>
 	)
-}
+})
 
 export default MainMenu
