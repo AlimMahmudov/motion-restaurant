@@ -18,7 +18,6 @@ export const useLanguageStore = create<ILanguageStore>()((set, get) => ({
       ? (JSON.parse(localStorage.getItem("lang")!) as TypeLanguage)
       : "en",
   translations: locales,
-
   setLanguage: (lang: TypeLanguage) => {
     set({ language: lang });
     if (typeof window !== "undefined") {

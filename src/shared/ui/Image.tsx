@@ -27,14 +27,12 @@ const CImage: React.FC<ImageProps> = memo(
 			setIsLoading(false)
 		}, [])
 
-		const formattedUrl = useMemo(() => {
+		const formattedUrl = (() => {
 			if (url.startsWith('http://') || url.startsWith('https://')) {
 				return url
-			} else if (typeof window !== 'undefined') {
-				return `${window.location.origin}${url}`
 			}
-			return ''
-		}, [url])
+			return `${window.location.origin}${url}`
+		})()
 
 		return (
 			<div
