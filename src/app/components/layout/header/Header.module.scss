@@ -1,21 +1,30 @@
 #Header {
 	background: #1b2026;
-	// position: fixed;
-	// width: 100%;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	border-bottom: 1px solid #ccc;
 
 	.header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 18px 0;
-
 		.dropdown {
+			@media (max-width: 900px) {
+				display: none;
+			}
+			&.add [data-content='true'] {
+				right: 0;
+			}
 			[data-content='true'] {
 				display: flex;
 				flex-direction: column;
 				padding: 6px;
 				border-radius: 4px;
-				background-color: #151515;
+				background-color: #23303f;
 
 				z-index: 15;
 				right: var(--dropdown-left);
@@ -38,13 +47,17 @@
 				font-family: var(--spartan);
 
 				&:hover {
-					background-color: #282828;
+					background-color: #36485e;
 				}
 			}
 		}
 		.trigger_btn {
-			font-size: 26px;
-			line-height: 0.5;
+			font-family: var(--silkSerif);
+			font-size: 25px;
+			font-weight: 600;
+			line-height: 21.48px;
+			text-align: left;
+			color: #ffffff;
 		}
 		.header_logo {
 			h1 {
@@ -60,10 +73,19 @@
 			align-items: center;
 			gap: 100px;
 			color: #ffffff;
-			nav {
+			@media (max-width: 1180px) {
+				gap: 20px;
+			}
+			.nav_items {
 				display: flex;
 				align-items: center;
 				gap: 60px;
+				@media (max-width: 1180px) {
+					gap: 20px;
+				}
+				@media (max-width: 900px) {
+					display: none;
+				}
 				a {
 					font-family: var(--spartan);
 					font-size: 16px;
@@ -79,6 +101,9 @@
 				display: flex;
 				align-items: center;
 				gap: 80px;
+				@media (max-width: 1180px) {
+					gap: 20px;
+				}
 				.header_input {
 					padding: 10px;
 					height: 37px;
@@ -88,7 +113,9 @@
 					display: flex;
 					align-items: center;
 					gap: 3px;
-
+					@media (max-width: 600px) {
+						display: none;
+					}
 					input {
 						font-family: var(--spartan);
 						background: none;

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 import React, { memo, useEffect, useRef } from 'react'
-import { useToggle, useClickAway } from 'ahooks'
+import { useToggle, useClickAway, useSize } from 'ahooks'
 import clsx from 'clsx'
 interface DropdownTrigger {
 	toggle(): void
@@ -14,7 +14,7 @@ interface IDropdownProps extends IChildren {
 	isOutsideClick?: boolean
 	internalClick?: boolean
 	className?: string
-	pt?: "centered" | 'default'
+	pt?: 'centered' | 'default'
 }
 
 const Dropdown: React.FC<IDropdownProps> = memo(props => {
@@ -36,19 +36,18 @@ const Dropdown: React.FC<IDropdownProps> = memo(props => {
 	const _internalClick = () => internalClick && set(false)
 	const contentEl = useRef<HTMLDivElement>(null)
 	const anchorEl = useRef<any>(null)
+	const contentSize = useSize(contentEl)
+	const anchorSize = useSize(anchorEl)
 	useEffect(() => {
-		if (contentEl.current && anchorEl.current && pt == 'centered') {
-			const tooltip_width = contentEl.current.offsetWidth
-			const anchor_width = anchorEl.current.offsetWidth
-
+		if (contentEl.current && pt == 'centered') {
 			contentEl.current.style.setProperty(
 				'--dropdown-left',
-				`-${tooltip_width / 2 - anchor_width / 2}px`
+				`-${Number(contentSize?.width) / 2 - Number(anchorSize?.width) / 2}px`
 			)
 		}
-	}, [anchorEl, contentEl, pt])
+	}, [anchorSize, contentSize, contentEl, pt])
 	return (
-		<div className={clsx(className, 'relative inlineBlock')} ref={ref}>
+		<div className={clsx(className, 'relative inlineFlexCenter')} ref={ref}>
 			{trigger({
 				toggle,
 				state,

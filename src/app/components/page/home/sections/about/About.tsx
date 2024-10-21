@@ -10,7 +10,7 @@ const About = () => {
 	const { $t } = useLanguageStore()
 
 	return (
-		<div id='about_us' data-scrool='true'>
+		<section id='about_us'>
 			<div className='container'>
 				<div className={scss.about}>
 					<div className={scss.about_text}>
@@ -29,7 +29,7 @@ const About = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

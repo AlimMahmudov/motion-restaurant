@@ -39,6 +39,20 @@ button {
   color: #ffffff;
 }
 
+label {
+  border: 0;
+  outline: 0;
+  background: 0;
+}
+
+input,
+select,
+textarea {
+  border: 0;
+  outline: 0;
+  background: 0;
+}
+
 ul {
   padding: 0;
   list-style: none;

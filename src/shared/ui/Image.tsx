@@ -41,7 +41,7 @@ const CImage: React.FC<ImageProps> = ({
 
 	return (
 		<div
-			className={clsx(className, 'relative flexCenter custom-image', {
+			className={clsx(className, 'inlineFlexCenter custom-image', {
 				loading: isLoading
 			})}
 		>
