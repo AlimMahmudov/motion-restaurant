@@ -1,23 +1,21 @@
 'use client'
 import { useLanguageStore } from '@/shared/stores/language-store'
 import clsx from 'clsx'
-import { CiSearch } from 'react-icons/ci'
 import scss from './Header.module.scss'
-import useWindowSize from '@/shared/hooks/useWindowSize'
-import HeaderMenu from './ui/HeaderMenu'
+import HeaderMenu from './ui/header-menu/HeaderMenu'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { memo } from 'react'
+import SearchWithPopup from './ui/search-with-popup/SearchWithPopup'
 
 const Header = memo(() => {
-	const { $t, language } = useLanguageStore()
+	const { $t, language, switchLanguage } = useLanguageStore()
 	const menuItems = $t<Record<'title' | 'href', string>[]>(
 		'header.menu',
 		'global'
 	)
 	const pathname = usePathname()
 	const languages = $t<string[]>('header.languages', 'global')
-	const { width } = useWindowSize()
 	return (
 		<header id={scss.Header}>
 			<div className='container'>
@@ -38,22 +36,13 @@ const Header = memo(() => {
 								})}
 						</nav>
 						<div className={scss.end}>
-							<div className={scss.header_input}>
-								<label className='inlineFlexCenter' htmlFor='search'>
-									{<CiSearch strokeWidth={2} />}
-								</label>
-								<input
-									type='text'
-									id='search'
-									name='search'
-									placeholder={`${$t('header.searchPlaceholder', 'global')}...`}
-								/>
-							</div>
+							<SearchWithPopup />
 							<HeaderMenu menuItems={menuItems} languages={languages} />
 							<button
-								className={clsx(scss.trigger_btn)}
+								onClick={switchLanguage}
+								className={clsx(scss.switchLanguage)}
 							>
-								{language}
+								{language.toUpperCase()}
 							</button>
 						</div>
 					</div>

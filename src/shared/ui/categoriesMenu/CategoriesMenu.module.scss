@@ -27,7 +27,7 @@
 	}
 
 	&.ourmenu {
-		@media (max-width: 1180px) {
+		@media (max-width: 1250px) {
 			min-width: 100%;
 			max-width: 100%;
 			display: inline-flex;
@@ -41,7 +41,6 @@
 			}
 
 			.item {
-
 				span,
 				a {
 					width: 100%;
@@ -121,7 +120,7 @@
 			}
 		}
 
-		@media (max-width:1180px) {
+		@media (max-width: 1250px) {
 			&::after {
 				display: none;
 			}

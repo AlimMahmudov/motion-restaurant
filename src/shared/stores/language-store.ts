@@ -7,7 +7,8 @@ import { create } from 'zustand'
 interface ILanguageStore {
 	language: TypeLanguage
 	translations: Record<string, Record<string, any>>
-	switchLanguage: () => void
+	setLanguage: (lang: TypeLanguage) => void
+	switchLanguage(): void
 	$t: <T>(key: string, ns: string) => T
 	init(): void
 }
@@ -18,6 +19,13 @@ export const useLanguageStore = create<ILanguageStore>()((set, get) => ({
 			? (JSON.parse(localStorage.getItem('lang')!) as TypeLanguage)
 			: 'en',
 	translations: locales,
+	setLanguage: (lang: TypeLanguage) => {
+		set({ language: lang })
+		if (typeof window !== 'undefined') {
+			document.body?.setAttribute('class', lang)
+			localStorage.setItem('lang', JSON.stringify(lang))
+		}
+	},
 	switchLanguage: () => {
 		const currentLanguage = get().language
 		let newLanguage: TypeLanguage
@@ -36,9 +44,9 @@ export const useLanguageStore = create<ILanguageStore>()((set, get) => ({
 				newLanguage = 'en'
 		}
 
-		set({ language: newLanguage })
+		get().setLanguage(newLanguage)
 	},
-	$t: (key: string, ns: string) => {
+	$t: (key, ns) => {
 		const lang = get().language
 		const translation = get().translations[lang]?.[ns]
 
