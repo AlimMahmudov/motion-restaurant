@@ -1,5 +1,5 @@
-import MenuPage from '../components/page/menu/MenuPage'
+import MenuPage from "../components/page/menu/MenuPage";
 
-const page = (props: PageProps) => <MenuPage {...props} />
+const page = (props: PageProps) => <MenuPage {...props} />;
 
-export default page
+export default page;
