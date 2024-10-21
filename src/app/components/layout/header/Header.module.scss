@@ -1,92 +1,141 @@
 #Header {
+  background: #1b2026;
   position: fixed;
   width: 100%;
-
-  background: #1b2026;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  border-bottom: 1px solid #ccc;
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    padding: 18px 0;
+    .dropdown {
+      @media (max-width: 900px) {
+        display: none;
+      }
+      &.add [data-content="true"] {
+        right: 0;
+      }
+      [data-content="true"] {
+        display: flex;
+        flex-direction: column;
+        padding: 6px;
+        border-radius: 4px;
+        background-color: #23303f;
 
+        z-index: 15;
+        right: var(--dropdown-left);
+        top: 120%;
+        width: auto;
+      }
+    }
+    .languages {
+      li button {
+        text-wrap: nowrap;
+        text-align: left;
+        padding: 9px 15px 9px 12px;
+        border-radius: 4px;
+        transition: all 0.25s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.9em;
+        width: 100%;
+        font-family: var(--spartan);
+
+        &:hover {
+          background-color: #36485e;
+        }
+      }
+    }
+    .trigger_btn {
+      font-family: var(--silkSerif);
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 21.48px;
+      text-align: left;
+      color: #ffffff;
+    }
     .header_logo {
       h1 {
         font-size: 28px;
         font-weight: 600;
         color: #fff;
+        line-height: 1;
       }
     }
 
     .header_search {
       display: flex;
       align-items: center;
-      gap: 60px;
+      gap: 100px;
       color: #ffffff;
-      .nav {
-        ul {
-          .link {
-            display: flex;
-            align-items: center;
-            a {
-              font-family: Spartan;
-              font-size: 16px;
-              font-weight: 500;
-              line-height: 17.92px;
-              color: white;
-              text-decoration: none;
-            }
+      @media (max-width: 1180px) {
+        gap: 20px;
+      }
+      .nav_items {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        @media (max-width: 1180px) {
+          gap: 20px;
+        }
+        @media (max-width: 900px) {
+          display: none;
+        }
+        a {
+          font-family: var(--spartan);
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 17.92px;
+          color: #fff;
+          &:hover {
+            text-decoration: underline;
           }
         }
       }
-
-      a {
-        font-family: Spartan;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 17.92px;
-        color: white;
-        text-decoration: none;
-      }
-
-      .header_input {
-        padding: 10px;
-        height: 37px;
-        border-radius: 10px;
-        border: 0.8px 0px 0px 0px;
-        background: #ef272c;
+      .end {
         display: flex;
         align-items: center;
-        text-align: center;
-
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        input {
-          background: none;
-          color: #ffffff;
-          border: none;
-          width: 180px;
+        gap: 80px;
+        @media (max-width: 1180px) {
+          gap: 20px;
+        }
+        .header_input {
+          padding: 10px;
           height: 37px;
-          outline: none;
-        }
+          border-radius: 10px;
+          border: 0.8px 0px 0px 0px;
+          background: #ef272c;
+          display: flex;
+          align-items: center;
+          gap: 3px;
+          @media (max-width: 600px) {
+            display: none;
+          }
+          input {
+            font-family: var(--spartan);
+            background: none;
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            padding: 4px;
+            outline: none;
+            font-size: 16px;
+            &::placeholder {
+              color: white;
+            }
+          }
 
-        h1 {
-          font-size: 14px;
+          label {
+            cursor: pointer;
+            font-size: 16px;
+            padding: 4px;
+          }
         }
-      }
-      select {
-        background: none;
-        border: none;
-        outline: none;
-        color: #ffffff;
-      }
-      option {
-        background: none;
-        border: none;
-        outline: none;
-        background: #1b2026;
       }
     }
   }

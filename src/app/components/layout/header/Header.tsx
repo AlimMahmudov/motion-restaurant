@@ -1,90 +1,99 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useLanguageStore } from "@/shared/stores/language-store";
+import Dropdown from "@/shared/ui/Dropdown";
+import clsx from "clsx";
 import { CiSearch } from "react-icons/ci";
 import scss from "./Header.module.scss";
-import BurgerMenu from "./BurgerMenu";
+import useWindowSize from "@/shared/hooks/useWindowSize";
+import HeaderMenu from "./ui/HeaderMenu";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { memo } from "react";
 
-const links = [
-  {
-    name: "interior",
-    link: "/",
-  },
-
-  {
-    name: "About Us",
-    link: "/person",
-  },
-  {
-    name: "Menu",
-    link: "/game",
-  },
-  {
-    name: "Contacts",
-    link: "/videowars",
-  },
-];
-
-const Header = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 1000);
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => {
-      window.addEventListener("resize", handleResize);
-    };
-  }, []);
-
+const Header = memo(() => {
+  const { $t, language, setLanguage } = useLanguageStore();
+  const menuItems = $t<Record<"title" | "href", string>[]>(
+    "header.menu",
+    "global"
+  );
+  const pathname = usePathname();
+  const languages = $t<string[]>("header.languages", "global");
+  const { width } = useWindowSize();
   return (
     <header id={scss.Header}>
       <div className="container">
         <div className={scss.header}>
-          <div className={scss.header_logo}>
+          <Link href="/" className={scss.header_logo}>
             <h1>Restaurant</h1>
-          </div>
-
+          </Link>
           <div className={scss.header_search}>
-            {isMobile ? (
-              <>
-                <button className={scss.bur} onClick={() => setIsOpen(!isOpen)}>
-                  Burger
-                </button>
-                <BurgerMenu links={links} isOpen={isOpen} />
-              </>
-            ) : (
-              <>
-                <div className={scss.nav}>
-                  <ul
-                    style={{
-                      display: "flex",
-                      gap: "80px",
-                      justifyContent: "center",
-                    }}
+            <nav className={scss.nav_items}>
+              {Array.isArray(menuItems) &&
+                menuItems?.map((item) => {
+                  const href = pathname === "/" ? item.href : `/${item.href}`;
+                  return (
+                    <Link href={href} key={item.title}>
+                      {item.title}
+                    </Link>
+                  );
+                })}
+            </nav>
+            <div className={scss.end}>
+              <div className={scss.header_input}>
+                <label className="inlineFlexCenter" htmlFor="search">
+                  {<CiSearch strokeWidth={2} />}
+                </label>
+                <input
+                  type="text"
+                  id="search"
+                  name="search"
+                  placeholder={`${$t("header.searchPlaceholder", "global")}...`}
+                />
+              </div>
+              <HeaderMenu menuItems={menuItems} languages={languages} />
+              <Dropdown
+                pt={width <= 1400 ? "default" : "centered"}
+                isOutsideClick
+                className={clsx(scss.dropdown, {
+                  [scss.add]: width <= 1400,
+                })}
+                trigger={({ toggle, ref }) => (
+                  <button
+                    className={clsx(scss.trigger_btn)}
+                    onClick={toggle}
+                    ref={ref}
                   >
-                    {links.map((item, index) => (
-                      <div className={scss.link} key={index}>
-                        <a href={item.link}>{item.name}</a>
-                      </div>
-                    ))}
+                    {language}
+                  </button>
+                )}
+              >
+                {({ onClose }) => (
+                  <ul className={scss.languages}>
+                    {Array.isArray(languages) &&
+                      languages?.map((item, idx) => {
+                        const lang = item.split(" - ")[0]?.toLowerCase();
+                        return (
+                          <li key={`${item}${idx}`}>
+                            <button
+                              onClick={() => {
+                                setLanguage(lang as TypeLanguage);
+                                onClose();
+                              }}
+                            >
+                              {item}
+                            </button>
+                          </li>
+                        );
+                      })}
                   </ul>
-                </div>
-                <div className={scss.header_input}>
-                  <h1>{<CiSearch />}</h1>
-                  <input type="text" placeholder="Search..." />
-                </div>
-                <select>
-                  <option>En</option>
-                  <option>Ru</option>
-                </select>
-              </>
-            )}
+                )}
+              </Dropdown>
+            </div>
           </div>
         </div>
       </div>
     </header>
   );
-};
+});
 
 export default Header;
