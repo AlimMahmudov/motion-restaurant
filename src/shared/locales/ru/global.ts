@@ -71,5 +71,16 @@ export default {
 			phone: '+771219900',
 			email: 'motionweb312@gmail.com'
 		}
+	},
+	'ryt-form': {
+		name: {
+			'input-placeholder': 'Введите ваше имя',
+			label: 'ИМЯ'
+		},
+		phone: {
+			'input-placeholder': 'Введите ваш телефон',
+			label: 'ТЕЛЕФОН'
+		},
+		submit: 'Связаться'
 	}
 }

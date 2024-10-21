@@ -5,8 +5,9 @@ import scss from './Hero.module.scss'
 
 import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
-import { FaArrowRightLong, FaLocationDot, FaPhoneFlip } from 'react-icons/fa6'
+import { FaLocationDot, FaPhoneFlip } from 'react-icons/fa6'
 import { memo } from 'react'
+import ReserveButton from '../modern/ui/reserve-button/ReserveButton'
 
 const Hero = memo(() => {
 	const { $t } = useLanguageStore()
@@ -23,17 +24,7 @@ const Hero = memo(() => {
 					<h1>{$t('homeSections.hero.title', 'global')}</h1>
 					<p>{$t('homeSections.hero.description', 'global')}</p>
 
-					<div className={scss.box}>
-						<div className={scss.line}></div>
-
-						<button>
-							<span>{$t('homeSections.hero.reserveButton', 'global')} </span>
-							<span className='inlineFlexCenter'>
-								<FaArrowRightLong />
-							</span>
-						</button>
-						<div className={scss.line}></div>
-					</div>
+					<ReserveButton />
 				</div>
 
 				<div className={scss.block}>

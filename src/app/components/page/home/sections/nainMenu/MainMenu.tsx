@@ -97,10 +97,10 @@ const MainMenu = memo(() => {
 								href={`/menu?category_id=${activeCategory}`}
 								className={`${scss.view_full_menu} inlineFlexCenter`}
 							>
-								<h3>{$t('homeSections.mainmenu.viewfullmenu', 'global')}</h3>
-								<h4 className='inlineFlexCenter'>
+								<span>{$t('homeSections.mainmenu.viewfullmenu', 'global')}</span>
+								<span className='inlineFlexCenter'>
 									<FaArrowRightLong />
-								</h4>
+								</span>
 							</Link>
 						</div>
 					</div>
