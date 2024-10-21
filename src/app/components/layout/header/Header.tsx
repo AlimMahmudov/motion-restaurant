@@ -8,8 +8,9 @@ import useWindowSize from '@/shared/hooks/useWindowSize'
 import HeaderMenu from './ui/HeaderMenu'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { memo } from 'react'
 
-const Header = () => {
+const Header = memo(() => {
 	const { $t, language, setLanguage } = useLanguageStore()
 	const menuItems = $t<Record<'title' | 'href', string>[]>(
 		'header.menu',
@@ -93,6 +94,6 @@ const Header = () => {
 			</div>
 		</header>
 	)
-}
+})
 
 export default Header

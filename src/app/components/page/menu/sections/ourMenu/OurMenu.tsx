@@ -2,11 +2,11 @@
 import { foodItems } from '@/shared/const/foodItems'
 import { useLanguageStore } from '@/shared/stores/language-store'
 import CategoriesMenu from '@/shared/ui/categoriesMenu/CategoriesMenu'
-import React, { useMemo } from 'react'
+import React, { memo, useCallback, useMemo } from 'react'
 import scss from './OurMenu.module.scss'
 import MenuResults from './ui/menu-results/MenuResults'
 
-const OurMenu: React.FC<{ category_id?: string }> = ({ category_id }) => {
+const OurMenu: React.FC<{ category_id?: string }> = memo(({ category_id }) => {
 	const { $t } = useLanguageStore()
 
 	const categories = $t<{ id: string; title: string }[]>(
@@ -17,9 +17,9 @@ const OurMenu: React.FC<{ category_id?: string }> = ({ category_id }) => {
 		category_id ?? categories[0].id
 	)
 
-	const changeActiveCategory = (id: string) => {
+	const changeActiveCategory = useCallback((id: string) => {
 		setActiveCategory(id)
-	}
+	}, [])
 
 	const filteredSortedFoodItems = useMemo(() => {
 		const filteredItems = foodItems.filter(
@@ -56,6 +56,5 @@ const OurMenu: React.FC<{ category_id?: string }> = ({ category_id }) => {
 			</div>
 		</section>
 	)
-}
-
+})
 export default OurMenu

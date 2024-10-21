@@ -5,8 +5,9 @@ import img16 from '@/shared/assets/Frame 16.png'
 import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
 import scss from './About.module.scss'
+import { memo } from 'react'
 
-const About = () => {
+const About = memo(() => {
 	const { $t } = useLanguageStore()
 
 	return (
@@ -31,6 +32,6 @@ const About = () => {
 			</div>
 		</section>
 	)
-}
+})
 
 export default About

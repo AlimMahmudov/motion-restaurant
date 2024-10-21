@@ -7,8 +7,9 @@ import scss from './Best.module.scss'
 
 import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
+import { memo } from 'react'
 
-const Best = () => {
+const Best = memo(() => {
 	const { $t } = useLanguageStore()
 
 	return (
@@ -34,6 +35,6 @@ const Best = () => {
 			</div>
 		</section>
 	)
-}
+})
 
 export default Best

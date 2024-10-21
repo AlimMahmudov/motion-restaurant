@@ -3,8 +3,9 @@ import { useLanguageStore } from '@/shared/stores/language-store'
 import { AiFillInstagram } from 'react-icons/ai'
 import { FaTelegramPlane } from 'react-icons/fa'
 import scss from './Footer.module.scss'
+import { memo } from 'react'
 
-const Footer = () => {
+const Footer = memo(() => {
 	const { $t } = useLanguageStore()
 	const menuItems = $t<Record<'title' | 'href', string>[]>(
 		'header.menu',
@@ -41,6 +42,6 @@ const Footer = () => {
 			</div>
 		</footer>
 	)
-}
+})
 
 export default Footer
