@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import React, { memo } from 'react'
 import { createPortal } from 'react-dom'
 import { CgClose } from 'react-icons/cg'
-
+import { motion } from 'framer-motion'
 interface IPopupProps {
 	className?: string
 	open: boolean
@@ -25,19 +25,35 @@ export const Popup: React.FC<IProps> = memo(props => {
 	})
 	return createPortal(
 		<>
-			{open && blur_bg && <div onClick={onClose} className={clsx('blur-bg')} />}
+			{open && blur_bg && (
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.2, ease: 'backIn' }}
+					onClick={onClose}
+					className={clsx('blur-bg')}
+				/>
+			)}
 
-			<div className={clsx('popup animate', className, { active: open })}>
-				<div data-popupbody className='popup_body'>
-					<button
-						onClick={onClose}
-						className={clsx('inlineFlexCenter close-popup')}
-					>
-						<CgClose />
-					</button>
-					{children}
-				</div>
-			</div>
+			{open && (
+				<motion.div
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					exit={{ opacity: 0, y: 20 }}
+					transition={{ duration: 0.2, ease: 'backIn' }}
+					className={clsx('popup', className)}
+				>
+					<div data-popupbody className='popup_body'>
+						<button
+							onClick={onClose}
+							className={clsx('inlineFlexCenter close-popup')}
+						>
+							<CgClose />
+						</button>
+						{children}
+					</div>
+				</motion.div>
+			)}
 		</>,
 		document.body
 	)

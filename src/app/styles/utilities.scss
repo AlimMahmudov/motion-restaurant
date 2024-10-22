@@ -70,36 +70,6 @@
 	}
 }
 
-.animate {
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	transition: all 0.25s;
-
-	&.transform-xl {
-		transform: translateX(-5px);
-	}
-
-	&.transform-xr {
-		transform: translateX(5px);
-	}
-
-	&.transform-yt {
-		transform: translateY(-5px);
-	}
-
-	&.transform-yb {
-		transform: translateY(5px);
-	}
-
-	&.active {
-		transform: none;
-		opacity: 1;
-		visibility: visible;
-		pointer-events: all;
-	}
-}
-
 .blur-bg {
 	position: fixed;
 	z-index: 60;
