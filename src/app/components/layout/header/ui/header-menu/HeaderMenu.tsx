@@ -4,7 +4,6 @@ import { useLanguageStore } from '@/shared/stores/language-store'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { useClickAway, useToggle } from 'ahooks'
-import useWindowSize from '@/shared/hooks/useWindowSize'
 import { IoClose } from 'react-icons/io5'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
@@ -16,17 +15,15 @@ interface IHeaderMenuProps {
 const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 	({ menuItems, languages }) => {
 		const { setLanguage, language } = useLanguageStore()
-		const { width } = useWindowSize()
 		const [state, { toggle, set }] = useToggle(false)
 		const ref = useRef<HTMLDivElement>(null)
 		useClickAway(() => {
-			if (width <= 900) set(false)
+			set(false)
 		}, ref)
 		const onClose = useCallback(() => set(false), [set])
 		const pathname = usePathname()
 
 		return (
-			width <= 900 && (
 				<div className={clsx('relative inlineFlexCenter', scss.header_menu)}>
 					<button
 						onClick={toggle}
@@ -117,7 +114,6 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 					)}
 				</div>
 			)
-		)
 	}
 )
 export default HeaderMenu

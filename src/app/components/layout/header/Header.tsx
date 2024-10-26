@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { memo } from 'react'
 import SearchWithPopup from './ui/search-with-popup/SearchWithPopup'
+import useWindowSize from '@/shared/hooks/useWindowSize'
 
 const Header = memo(() => {
 	const { $t, language, switchLanguage } = useLanguageStore()
@@ -16,6 +17,8 @@ const Header = memo(() => {
 	)
 	const pathname = usePathname()
 	const languages = $t<string[]>('header.languages', 'global')
+	const { width } = useWindowSize()
+
 	return (
 		<header id={scss.Header}>
 			<div className='container'>
@@ -37,7 +40,9 @@ const Header = memo(() => {
 						</nav>
 						<div className={scss.end}>
 							<SearchWithPopup />
-							<HeaderMenu menuItems={menuItems} languages={languages} />
+							{width <= 900 && (
+								<HeaderMenu menuItems={menuItems} languages={languages} />
+							)}{' '}
 							<button
 								onClick={switchLanguage}
 								className={clsx(scss.switchLanguage)}

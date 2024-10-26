@@ -76,6 +76,7 @@
 	border-radius: 8px;
 	[data-popupbody] {
 		padding: 20px;
+		overflow: hidden;
 		button {
 			top: 18px;
 		}
