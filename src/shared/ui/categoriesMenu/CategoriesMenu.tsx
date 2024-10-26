@@ -3,6 +3,7 @@ import React, { memo } from 'react'
 import scss from './CategoriesMenu.module.scss'
 import clsx from 'clsx'
 import Link from 'next/link'
+import { useLanguageStore } from '@/shared/stores/language-store'
 
 interface ICategoriesMenuProps {
 	activeCategory: string
@@ -23,8 +24,9 @@ const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
 		type,
 		isLink = false
 	}) => {
+		const {language} = useLanguageStore()
 		return (
-			<ul className={clsx(scss.CategoriesMenu, scss[`${type}`])}>
+			<ul className={clsx(scss.CategoriesMenu,scss[language], scss[`${type}`])}>
 				{Array.isArray(categories) &&
 					categories.map(el => (
 						<li

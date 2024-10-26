@@ -1,6 +1,8 @@
 .header_menu {
 	display: none;
 	@media (max-width: 900px) {
+		position: relative;
+		z-index: 99;
 		display: block;
 	}
 }

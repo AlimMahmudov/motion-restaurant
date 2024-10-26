@@ -17,7 +17,7 @@ const ReserveButton: React.FC = () => {
 					<FaArrowRightLong />
 				</span>
 			</button>
-			<Popup blur_bg className={scss.popup} open={open} onClose={onClose}>
+			<Popup className={scss.popup} open={open} onClose={onClose}>
 				<form onSubmit={e => e.preventDefault()} className={scss.form}>
 					<div className={scss.field_box}>
 						<figure>

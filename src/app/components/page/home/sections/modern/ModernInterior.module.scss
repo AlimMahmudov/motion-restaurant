@@ -1,36 +1,40 @@
 .ModernInterior {
-  padding-bottom: 70px;
-  overflow-x: scroll;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  .ModernInterior__inner {
-    border-left: 0.4px solid #e5e5e5;
-    padding-left: 20px;
-    display: flex;
-    column-gap: 24px;
-    margin-top: 32px;
-    .modern__content {
-      display: flex;
-      img {
-        transition: 1;
-        &:hover {
-          filter: saturate(2);
-        }
-      }
-      .interior__left {
-        margin-right: 25px;
-      }
-      .interior__right {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        .interior__right__bottom {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-      }
-    }
-  }
+	padding-bottom: 70px;
+  padding-top: 50px;
+	.container {
+		overflow-x: scroll;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+	.ModernInterior__inner {
+		border-left: 0.4px solid #e5e5e5;
+		padding-left: 20px;
+		display: flex;
+		column-gap: 24px;
+		margin-top: 32px;
+		.modern__content {
+			display: flex;
+			img {
+				transition: 1;
+				&:hover {
+					filter: saturate(2);
+				}
+			}
+			.interior__left {
+				margin-right: 25px;
+			}
+			.interior__right {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				.interior__right__bottom {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+				}
+			}
+		}
+	}
 }

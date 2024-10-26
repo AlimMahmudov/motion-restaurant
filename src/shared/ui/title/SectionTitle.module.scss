@@ -27,4 +27,19 @@
 		text-align: center;
 		padding-top: 18px;
 	}
+	&.kg,
+	&.ru {
+		@media (max-width: 500px) {
+			padding: 0 20px;
+			.Title {
+				gap: 0;
+
+				h4 {
+					font-size: 40px;
+					text-align: center;
+					line-height: 1;
+				}
+			}
+		}
+	}
 }

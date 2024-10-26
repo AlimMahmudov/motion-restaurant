@@ -118,6 +118,7 @@
 		}
 
 		@media (max-width: 700px) {
+			align-items: flex-start;
 			div[class*='location'] {
 				flex-direction: column;
 				gap: 15px;
@@ -134,6 +135,7 @@
 				p {
 					max-width: 150px;
 					text-wrap: wrap;
+					line-height: 1.2;
 				}
 			}
 

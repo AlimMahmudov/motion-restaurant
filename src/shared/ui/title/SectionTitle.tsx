@@ -4,13 +4,16 @@ import { FC, memo } from 'react'
 import scss from './SectionTitle.module.scss'
 
 import Image from 'next/image'
+import { useLanguageStore } from '@/shared/stores/language-store'
+import clsx from 'clsx'
 interface Iprops {
 	title: string
 	subtitle: string
 }
 const SectionTitles: FC<Iprops> = memo(({ title, subtitle }) => {
+	const { language } = useLanguageStore()
 	return (
-		<div className={scss.SectionTitle}>
+		<div className={clsx(scss.SectionTitle, scss[language])}>
 			<div className={scss.Title}>
 				<Image src={img10} alt='not-found' />
 				<h4>{title}</h4>

@@ -4,14 +4,10 @@
 	align-items: center;
 	border-radius: 8px;
 	overflow: hidden;
-	@media (max-width: 600px) {
-		&:not(.popup_version) {
-			display: none;
-		}
-	}
+	
 	&.popup_version {
 		background: #ffffff;
-		width: 80%;
+		width: 90%;
 		input {
 			width: 100%;
 			color: #000;
@@ -63,7 +59,7 @@
 }
 
 .popup {
-	--popup-width: 500px;
+	--popup-width: 430px;
 	width: var(--popup-width);
 	top: 120px;
 	height: 70dvh;
@@ -72,9 +68,6 @@
 	border-radius: 8px;
 	[data-popupbody] {
 		padding: 20px;
-	}
-	@media (max-width: 550px) {
-		--popup-width: 430px;
 	}
 	@media (max-width: 450px) {
 		--popup-width: 370px;
@@ -100,13 +93,13 @@
 	padding: 0.75rem 0;
 	border-radius: 8px;
 	color: white;
+	gap: 10px;
 
 	img {
 		width: 100px;
 		height: 80px;
 		object-fit: cover;
 		border-radius: 12px;
-		margin-right: 10px;
 	}
 
 	.food_details {

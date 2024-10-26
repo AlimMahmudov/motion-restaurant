@@ -4,6 +4,9 @@
 	height: fit-content;
 	max-width: 400px;
 	min-width: 400px;
+	@media (max-width: 1920px) and (min-width: 1250px) {
+		padding-bottom: 25px;
+	}
 
 	@media (max-width: 1200px) {
 		max-width: 350px;
@@ -91,7 +94,19 @@
 		padding: 10px 62px;
 		transition: all 0.25s;
 		position: relative;
+		justify-content: center;
 
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			right: calc(25% / 2);
+			background: #9b9b9b;
+			width: 75%;
+			height: 1px;
+			transition: all 0.25s;
+			transform-origin: left;
+		}
 		&::after {
 			content: '';
 			position: absolute;
@@ -100,7 +115,7 @@
 			background: #fff;
 			width: 70px;
 			height: 1px;
-			transition: all 0.25s;
+			transition: all 0.35s;
 			transform: rotateY(90deg);
 			transform-origin: left;
 		}
@@ -109,23 +124,29 @@
 			&::after {
 				transform: rotateY(0);
 			}
+			&::before {
+				transform: rotateX(95deg);
+			}
 
 			background: #ef272c;
 
 			span,
 			a {
-				border-bottom: none;
 				color: white;
 				border-color: white;
 			}
 		}
 
-		@media (max-width: 1250px) {
-			&::after {
-				display: none;
+		&:hover {
+			&::before {
+				background-color: white;
+			}
+			span,
+			a {
+				color: white;
+				border-color: white;
 			}
 		}
-
 		span,
 		a {
 			display: inline-block;
@@ -133,15 +154,30 @@
 			font-size: 24px;
 			font-weight: 600;
 			text-align: center;
-			border-bottom: 1px solid #9b9b9b;
 			width: 100%;
 			color: #9b9b9b;
 			transition: all 0.25s;
 			text-wrap: nowrap;
+		}
+	}
+	&:not(.ourmenu).kg,
+	&:not(.ourmenu).ru {
+		@media (max-width: 500px) {
+			.item {
+				padding: 10px 40px;
+			}
+		}
+	}
+	&.ourmenu {
+		@media (max-width: 1250px) {
+			.item {
+				&::after {
+					display: none;
+				}
 
-			&:hover {
-				color: white;
-				border-color: white;
+				&::before {
+					display: none;
+				}
 			}
 		}
 	}

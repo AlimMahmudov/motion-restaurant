@@ -5,7 +5,9 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { useClickAway, useToggle } from 'ahooks'
 import useWindowSize from '@/shared/hooks/useWindowSize'
-import { IoClose } from 'react-icons/io5'
+import { IoClose } from 'react-icons/io5';
+import { motion } from 'framer-motion'
+
 interface IHeaderMenuProps {
 	menuItems: Record<'title' | 'href', string>[]
 	languages: string[]
@@ -28,7 +30,7 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 						onClick={toggle}
 						className={clsx(scss['open_menu'], 'inlineFlexCenter')}
 					>
-						{state ? (
+						{!state ? (
 							<svg
 								width='34'
 								height='34'
@@ -70,7 +72,13 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 						)}
 					</button>
 					{state && (
-						<div className={clsx(scss.content, 'absolute', {})}>
+						<motion.div
+							initial={{ opacity: 0, y: 10 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 10 }}
+							transition={{ duration: 0.2, ease: 'backIn' }}
+							className={clsx(scss.content, 'absolute', {})}
+						>
 							<nav className={scss.nav_items}>
 								{Array.isArray(menuItems) &&
 									menuItems?.map(item => (
@@ -100,7 +108,7 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 										)
 									})}
 							</ul>
-						</div>
+						</motion.div>
 					)}
 				</div>
 			)

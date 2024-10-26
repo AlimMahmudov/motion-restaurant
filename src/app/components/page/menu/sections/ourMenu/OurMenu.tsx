@@ -42,19 +42,22 @@ const OurMenu: React.FC<{ category_id?: string }> = memo(({ category_id }) => {
   }, [activeCategory]);
 
   return (
-    <section className={scss.MainMenu}>
-      <div className="container">
-        <div className={scss.MainMenu__inner}>
-          <CategoriesMenu
-            type="ourmenu"
-            categories={categories}
-            activeCategory={activeCategory}
-            changeActiveCategory={changeActiveCategory}
-          />
-          <MenuResults foodItems={filteredSortedFoodItems} />
-        </div>
-      </div>
-    </section>
-  );
+		<section className={scss.MainMenu}>
+			<div className='container'>
+				<div className={scss.MainMenu__inner}>
+					<CategoriesMenu
+						type='ourmenu'
+						categories={categories}
+						activeCategory={activeCategory}
+						changeActiveCategory={changeActiveCategory}
+					/>
+					<MenuResults
+						activeCategory={activeCategory}
+						foodItems={filteredSortedFoodItems}
+					/>
+				</div>
+			</div>
+		</section>
+	)
 });
 export default OurMenu;

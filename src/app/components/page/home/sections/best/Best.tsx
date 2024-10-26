@@ -10,10 +10,10 @@ import Image from 'next/image'
 import { memo } from 'react'
 
 const Best = memo(() => {
-	const { $t } = useLanguageStore()
+	const { $t,language } = useLanguageStore()
 
 	return (
-		<section>
+		<section className={scss[language]}>
 			<div className='container'>
 				<div className={scss.best}>
 					<div className={scss.best_sellers}>

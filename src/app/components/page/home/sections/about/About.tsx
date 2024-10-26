@@ -8,10 +8,10 @@ import scss from './About.module.scss'
 import { memo } from 'react'
 
 const About = memo(() => {
-	const { $t } = useLanguageStore()
+	const { $t, language } = useLanguageStore()
 
 	return (
-		<section id='about_us'>
+		<section id='about_us' className={scss[language]}>
 			<div className='container'>
 				<div className={scss.about}>
 					<div className={scss.about_text}>

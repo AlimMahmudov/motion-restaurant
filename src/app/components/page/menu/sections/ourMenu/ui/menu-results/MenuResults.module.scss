@@ -1,6 +1,12 @@
 .parent {
 	width: 100%;
 
+	.similar {
+		margin-bottom: 10px;
+		h4 {
+			font-size: 30px;
+		}
+	}
 	.noItems {
 		text-align: center;
 		padding: 20px;
@@ -16,16 +22,12 @@
 
 	.clearMI {
 		position: fixed;
-		z-index: 100;
+		z-index: 40;
 		top: 90px;
 		left: 30px;
 		padding: 8px;
 		background: #1b2026;
 		border-radius: 10px;
-
-		&:hover {
-			background-color: #36485e;
-		}
 
 		@media (max-width: 800px) {
 			width: 50px;
