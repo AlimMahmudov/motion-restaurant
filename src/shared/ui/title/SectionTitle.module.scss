@@ -28,19 +28,17 @@
 		padding-top: 18px;
 	}
 
-	&.kg,
-	&.ru {
-		@media (max-width: 480px) {
-			padding: 0 20px;
-
-			.Title {
-				gap: 0;
-
-				h4 {
-					font-size: 40px;
-					text-align: center;
-					line-height: 1;
-				}
+	@media (max-width: 480px) {
+		padding: 0 20px;
+		&.kg,
+		&.ru {
+			gap: 0;
+		}
+		.Title {
+			h4 {
+				font-size: 40px;
+				text-align: center;
+				line-height: 1;
 			}
 		}
 	}
