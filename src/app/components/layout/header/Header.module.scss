@@ -13,7 +13,7 @@
 		padding: 18px 0;
 
 		@media (max-width: 480px) {
-			padding: 10px 0 8px 0;
+			padding: 12px 0 8px 0;
 		}
 
 		.switchLanguage {
@@ -37,6 +37,9 @@
 				line-height: 1;
 				@media (max-width: 1920px) and (min-width: 900px) {
 					margin-bottom: 8px;
+				}
+				@media (max-width: 480px) {
+					margin-top: 2px;
 				}
 			}
 		}
