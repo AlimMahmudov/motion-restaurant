@@ -67,3 +67,12 @@ ul {
 a {
 	text-decoration: none;
 }
+
+.wrapper {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100dvh;
+}
