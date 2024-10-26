@@ -68,6 +68,6 @@ export const Popup: React.FC<IPopupProps> = memo((props) => {
 				</motion.div>
 			)}
 		</>,
-		document.body
+		document.querySelector(".wrapper") || document.body
 	)
 });

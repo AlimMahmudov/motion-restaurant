@@ -11,7 +11,7 @@
 
 	@media (max-width: 1200px) {
 		max-width: 350px;
-		min-width: 350px;
+		min-width: 350px;	
 	}
 
 	&.mainmenu {
@@ -172,7 +172,7 @@
 	&:not(.ourmenu).ru {
 		@media (max-width: 480px) {
 			.item {
-				padding: 10px 40px;
+				padding: 10px 0;
 			}
 		}
 	}
