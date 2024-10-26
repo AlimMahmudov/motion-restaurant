@@ -6,12 +6,15 @@ import { useLanguageStore } from '@/shared/stores/language-store'
 import Image from 'next/image'
 import scss from './About.module.scss'
 import { memo } from 'react'
+import useWindowSize from '@/shared/hooks/useWindowSize'
 
 const About = memo(() => {
 	const { $t, language } = useLanguageStore()
-
+	const { width, height } = useWindowSize()
 	return (
 		<section id='about_us' className={scss[language]}>
+			{width}
+			{height}
 			<div className='container'>
 				<div className={scss.about}>
 					<div className={scss.about_text}>
