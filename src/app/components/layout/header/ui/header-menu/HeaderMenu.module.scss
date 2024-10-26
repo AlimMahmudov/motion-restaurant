@@ -33,6 +33,8 @@
 	}
 }
 .open_menu {
+	max-width: 34px;
+	max-height: 34px;
 	svg {
 		font-size: 35px;
 	}
@@ -49,7 +51,8 @@
 	z-index: 80;
 	right: 0;
 	top: 72px;
-	width: auto;
+	width: 100%;
+	height: 100%;
 }
 
 .nav_items {
@@ -79,11 +82,10 @@
 
 @media (max-width: 600px) {
 	.content {
-		width: 100vw;
-		top: 54px;
-		left: 0;
+		width: 100%;
+		top: 52px;
 		position: fixed;
-		height: calc(100% - 54px);
+		height: calc(100% - 53px);
 		border-radius: 0;
 		display: flex;
 		flex-direction: column;
