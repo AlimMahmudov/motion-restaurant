@@ -9,6 +9,9 @@ export default {
 		languages: ['EN - Английский', 'RU - Русский', 'KG - Кыргызский'],
 		searchPlaceholder: 'Поиск'
 	},
+	search: {
+		noResults: 'Результаты не найдены'
+	},
 	homeSections: {
 		hero: {
 			title: 'Итальянская Кухня',

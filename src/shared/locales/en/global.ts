@@ -9,6 +9,9 @@ export default {
 		languages: ['EN - English', 'RU - Russian', 'KG - Kyrgyz'],
 		searchPlaceholder: 'Search'
 	},
+	search: {
+		noResults: "No results found"
+	},
 	homeSections: {
 		hero: {
 			title: 'Italian Cuisine',

@@ -9,6 +9,9 @@ export default {
 		languages: ['EN - Англисче', 'RU - Орусча', 'KG - Кыргызча'],
 		searchPlaceholder: 'Издөө'
 	},
+	search: {
+		noResults: 'Натыйжа табылган жок'
+	},
 	homeSections: {
 		hero: {
 			title: 'Итальян ашканасы',

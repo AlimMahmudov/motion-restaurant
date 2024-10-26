@@ -78,7 +78,7 @@
 	--popup-width: 430px;
 	width: var(--popup-width);
 	top: 120px;
-	height: 70dvh;
+	max-height: 70dvh;
 	left: calc(50% - var(--popup-width) / 2);
 	background: #1f2731;
 	border-radius: 8px;
