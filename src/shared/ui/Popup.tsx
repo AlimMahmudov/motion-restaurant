@@ -42,7 +42,7 @@ export const Popup: React.FC<IPopupProps> = memo(props => {
 		}
 	}, [open, blur_bg, onClose])
 	useEffect(() => {
-		if (open && blur_bg && typeof window !== 'undefined') {
+		if (open && !blur_bg && typeof window !== 'undefined') {
 			document.body.style.overflowY = 'hidden'
 		} else {
 			document.body.style.overflowY = 'auto'
@@ -72,6 +72,7 @@ export const Popup: React.FC<IPopupProps> = memo(props => {
 				>
 					<div data-popupbody className='popup_body'>
 						<button
+							data-closepopup
 							onClick={onClose}
 							className={clsx('inlineFlexCenter close-popup')}
 						>

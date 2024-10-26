@@ -51,6 +51,11 @@
 	z-index: 80;
 	right: 10px;
 	top: 78px;
+	[data-popupbody] {
+		[data-closepopup] {
+			display: none;
+		}
+	}
 }
 
 .nav_items {

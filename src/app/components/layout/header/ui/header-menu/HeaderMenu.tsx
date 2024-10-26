@@ -5,9 +5,8 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { useClickAway, useToggle } from 'ahooks'
 import { IoClose } from 'react-icons/io5'
-import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
-import { createPortal } from 'react-dom'
+import { Popup } from '@/shared/ui/Popup'
 
 interface IHeaderMenuProps {
 	menuItems: Record<'title' | 'href', string>[]
@@ -71,52 +70,44 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 						<IoClose />
 					)}
 				</button>
-				{state &&
-					typeof window !== 'undefined' &&
-					createPortal(
-						<motion.div
-							initial={{ opacity: 0, y: 10 }}
-							animate={{ opacity: 1, y: 0 }}
-							exit={{ opacity: 0, y: 10 }}
-							transition={{ duration: 0.2, ease: 'backIn' }}
-							className={clsx(scss.content, 'absolute', {})}
-							ref={ref}
-						>
-							<nav className={scss.nav_items}>
-								{Array.isArray(menuItems) &&
-									menuItems?.map(item => {
-										const href = pathname === '/' ? item.href : `/${item.href}`
-										return (
-											<Link onClick={onClose} href={href} key={item.title}>
-												{item.title}
-											</Link>
-										)
-									})}
-							</nav>
-							<ul className={scss.languages}>
-								{Array.isArray(languages) &&
-									languages?.map((item, idx) => {
-										const lang = item.split(' - ')[0]?.toLowerCase()
-										return (
-											<li key={`${item}${idx}`}>
-												<button
-													onClick={() => {
-														setLanguage(lang as TypeLanguage)
-														onClose()
-													}}
-													className={clsx({
-														[scss.active]: language == lang
-													})}
-												>
-													{lang.toUpperCase()}
-												</button>
-											</li>
-										)
-									})}
-							</ul>
-						</motion.div>,
-						document.body
-					)}
+				<Popup
+					open={state}
+					onClose={onClose}
+					className={clsx(scss.content, 'absolute', {})}
+				>
+					<nav className={scss.nav_items}>
+						{Array.isArray(menuItems) &&
+							menuItems?.map(item => {
+								const href = pathname === '/' ? item.href : `/${item.href}`
+								return (
+									<Link onClick={onClose} href={href} key={item.title}>
+										{item.title}
+									</Link>
+								)
+							})}
+					</nav>
+					<ul className={scss.languages}>
+						{Array.isArray(languages) &&
+							languages?.map((item, idx) => {
+								const lang = item.split(' - ')[0]?.toLowerCase()
+								return (
+									<li key={`${item}${idx}`}>
+										<button
+											onClick={() => {
+												setLanguage(lang as TypeLanguage)
+												onClose()
+											}}
+											className={clsx({
+												[scss.active]: language == lang
+											})}
+										>
+											{lang.toUpperCase()}
+										</button>
+									</li>
+								)
+							})}
+					</ul>
+				</Popup>
 			</div>
 		)
 	}
