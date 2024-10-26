@@ -8,6 +8,7 @@
 	transition: all 0.15s;
 	position: relative;
 	text-transform: uppercase;
+	z-index: 1;
 
 	span {
 		font-family: var(--spartan);

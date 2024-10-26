@@ -51,12 +51,12 @@
 .kg .best .best_block .best_text,
 .ru .best .best_block .best_text {
 	h4 {
-		max-width: 780px;
+		max-width: 480px;
 		line-height: 1;
 	}
 }
 
-@media (max-width: 780px) {
+@media (max-width: 480px) {
 
 	.kg .best,
 	.ru .best {

@@ -4,7 +4,7 @@
 	align-items: center;
 	border-radius: 8px;
 	overflow: hidden;
-	
+
 	&.popup_version {
 		background: #ffffff;
 		width: 90%;
@@ -58,6 +58,14 @@
 	}
 }
 
+.open_search_popup {
+	width: 34px;
+	height: 34px;
+	svg {
+		font-size: 25px;
+	}
+}
+
 .popup {
 	--popup-width: 430px;
 	width: var(--popup-width);
@@ -68,12 +76,15 @@
 	border-radius: 8px;
 	[data-popupbody] {
 		padding: 20px;
+		button {
+			top: 18px;
+		}
 	}
 	@media (max-width: 450px) {
-		--popup-width: 370px;
+		--popup-width: 95%;
 	}
 	@media (max-width: 400px) {
-		--popup-width: 310px;
+		--popup-width: 95%;
 	}
 }
 

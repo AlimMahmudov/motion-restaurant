@@ -1,19 +1,17 @@
 #Header {
 	background: #1b2026;
-	position: fixed;
+	position: sticky;
 	width: 100%;
 	top: 0;
-	left: 0;
-	z-index: 50;
 	box-shadow: 0 0 1px gray;
-
+	z-index: 80;
 	.header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 18px 0;
-		@media (max-width:780px) {
-			padding-bottom: 13px;
+		padding:  18px 0;
+		@media (max-width: 480px) {
+			padding: 12px 0 8px 0;
 		}
 
 		.switchLanguage {
@@ -23,6 +21,7 @@
 			line-height: 1;
 			text-align: left;
 			color: #ffffff;
+
 			@media (max-width: 900px) {
 				display: none;
 			}
@@ -81,6 +80,9 @@
 
 				@media (max-width: 1180px) {
 					gap: 20px;
+				}
+				@media (max-width:870px) {
+					gap: 10px;
 				}
 			}
 		}

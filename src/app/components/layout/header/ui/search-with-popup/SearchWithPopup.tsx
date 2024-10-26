@@ -8,6 +8,7 @@ import { useToggle } from 'ahooks'
 import { foodItems } from '@/shared/const/foodItems'
 import CImage from '@/shared/ui/Image'
 import useWindowSize from '@/shared/hooks/useWindowSize'
+import clsx from 'clsx'
 
 const SearchWithPopup: React.FC = () => {
 	const { $t } = useLanguageStore()
@@ -25,7 +26,10 @@ const SearchWithPopup: React.FC = () => {
 	const filteredFoodItems = useMemo(
 		() =>
 			foodItems.filter(item =>
-				item.name.toLowerCase().includes(searchValue.toLowerCase())
+				item.name
+					.trim()
+					.toLowerCase()
+					.includes(searchValue.trim().toLowerCase())
 			),
 		[searchValue]
 	)
@@ -33,7 +37,9 @@ const SearchWithPopup: React.FC = () => {
 	return (
 		<>
 			{width <= 600 ? (
-				<button></button>
+				<button onClick={() => set(true)} className={clsx('inlineFlexCenter',scss.open_search_popup)}>
+					<CiSearch strokeWidth={1.1} />
+				</button>
 			) : (
 				<HeaderInput
 					value={searchValue}
@@ -83,6 +89,7 @@ const HeaderInput: React.FC<{
 				id='header-search'
 				name='search'
 				value={value}
+				autoFocus
 				onChange={e => onChange(e.target.value)}
 				onKeyDown={onKeyDown}
 				placeholder='Search...'
@@ -96,7 +103,7 @@ const SearchListItem: React.FC<{ item: (typeof foodItems)[0] }> = ({
 }) => (
 	<div className={scss.food_item}>
 		<CImage
-			className='auto rounded'
+			className='auto-to-notmobile rounded'
 			width={50}
 			height={50}
 			url={item.imageSrc}

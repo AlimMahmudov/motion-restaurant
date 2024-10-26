@@ -3,7 +3,7 @@
 	@media (max-width: 900px) {
 		position: relative;
 		z-index: 99;
-		display: block;
+		display: inline-flex;
 	}
 }
 .languages {
@@ -33,7 +33,6 @@
 	}
 }
 .open_menu {
-	margin-inline: 0;
 	svg {
 		font-size: 35px;
 	}
@@ -47,9 +46,9 @@
 	border-radius: 4px;
 	background-color: #23303f;
 
-	z-index: 30;
+	z-index: 80;
 	right: 0;
-	top: 79px;
+	top: 72px;
 	width: auto;
 }
 
@@ -82,7 +81,7 @@
 @media (max-width: 600px) {
 	.content {
 		width: 100%;
-		top: 72px;
+		top: 66px;
 		position: fixed;
 		height: 100%;
 		display: flex;
