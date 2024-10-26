@@ -90,18 +90,16 @@
 		}
 	}
 	@media (max-width: 450px) {
-		--popup-width: 95%;
-	}
-	@media (max-width: 400px) {
-		--popup-width: 95%;
+		--popup-width: 93%;
+		top: 80px;
 	}
 }
 
 .search_list {
 	height: 60dvh;
+	overflow: hidden;
 	overflow-y: scroll;
 	margin-top: 1rem;
-	list-style: none;
 	&::-webkit-scrollbar {
 		width: 0;
 	}

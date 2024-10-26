@@ -6,6 +6,9 @@
 	section {
 		scroll-margin-top: 60px;
 	}
+	main {
+		margin-top: var(--header-height);
+	}
 	footer {
 		margin-top: auto;
 	}

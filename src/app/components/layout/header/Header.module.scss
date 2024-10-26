@@ -1,19 +1,20 @@
 #Header {
 	background: #1b2026;
-	position: sticky;
+	position: fixed;
 	width: 100%;
 	top: 0;
+	left: 0;
 	box-shadow: 0 0 1px gray;
 	z-index: 80;
-	padding: 18px 0;
-
-	@media (max-width: 480px) {
-		padding: 10px 0 8px 0;
-	}
 	.header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding: 18px 0;
+
+		@media (max-width: 480px) {
+			padding: 10px 0 8px 0;
+		}
 
 		.switchLanguage {
 			font-family: var(--silkSerif);
