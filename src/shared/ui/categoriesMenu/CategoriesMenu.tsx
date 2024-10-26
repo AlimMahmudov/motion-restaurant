@@ -1,5 +1,5 @@
 'use client'
-import React, { memo } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import scss from './CategoriesMenu.module.scss'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -24,9 +24,25 @@ const CategoriesMenu: React.FC<ICategoriesMenuProps> = memo(
 		type,
 		isLink = false
 	}) => {
-		const {language} = useLanguageStore()
+		const { language } = useLanguageStore()
+		const menuRef = useRef<HTMLUListElement>(null)
+
+		useEffect(() => {
+			const activeElement = menuRef.current?.querySelector(`.${scss.active}`)
+			if (activeElement) {
+				activeElement.scrollIntoView({
+					behavior: 'smooth',
+					block: 'nearest',
+					inline: 'center'
+				})
+			}
+		}, [activeCategory])
+
 		return (
-			<ul className={clsx(scss.CategoriesMenu,scss[language], scss[`${type}`])}>
+			<ul
+				ref={menuRef}
+				className={clsx(scss.CategoriesMenu, scss[language], scss[`${type}`])}
+			>
 				{Array.isArray(categories) &&
 					categories.map(el => (
 						<li

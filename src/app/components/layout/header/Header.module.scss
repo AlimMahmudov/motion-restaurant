@@ -12,6 +12,9 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 18px 0;
+		@media (max-width:500px) {
+			padding-bottom: 13px;
+		}
 
 		.switchLanguage {
 			font-family: var(--silkSerif);

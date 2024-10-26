@@ -5,8 +5,9 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { useClickAway, useToggle } from 'ahooks'
 import useWindowSize from '@/shared/hooks/useWindowSize'
-import { IoClose } from 'react-icons/io5';
+import { IoClose } from 'react-icons/io5'
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
 
 interface IHeaderMenuProps {
 	menuItems: Record<'title' | 'href', string>[]
@@ -22,6 +23,7 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 			if (width <= 900) set(false)
 		}, ref)
 		const onClose = useCallback(() => set(false), [set])
+		const pathname = usePathname()
 
 		return (
 			width <= 900 && (
@@ -81,11 +83,14 @@ const HeaderMenu: React.FC<IHeaderMenuProps> = memo(
 						>
 							<nav className={scss.nav_items}>
 								{Array.isArray(menuItems) &&
-									menuItems?.map(item => (
-										<Link onClick={onClose} href={item.href} key={item.title}>
-											{item.title}
-										</Link>
-									))}
+									menuItems?.map(item => {
+										const href = pathname === '/' ? item.href : `/${item.href}`
+										return (
+											<Link onClick={onClose} href={href} key={item.title}>
+												{item.title}
+											</Link>
+										)
+									})}
 							</nav>
 							<ul className={scss.languages}>
 								{Array.isArray(languages) &&
