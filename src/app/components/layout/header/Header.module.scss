@@ -5,14 +5,16 @@
 	top: 0;
 	box-shadow: 0 0 1px gray;
 	z-index: 80;
+	padding: 18px 0;
+	
+		@media (max-width: 480px) {
+			padding: 10px 0 8px 0;
+		}
 	.header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding:  18px 0;
-		@media (max-width: 480px) {
-			padding: 12px 0 8px 0;
-		}
+		
 
 		.switchLanguage {
 			font-family: var(--silkSerif);
@@ -82,7 +84,7 @@
 				@media (max-width: 1180px) {
 					gap: 20px;
 				}
-				@media (max-width:870px) {
+				@media (max-width: 870px) {
 					gap: 10px;
 				}
 			}

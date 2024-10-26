@@ -7,14 +7,12 @@ import { Popup } from '@/shared/ui/Popup'
 import { useToggle } from 'ahooks'
 import { foodItems } from '@/shared/const/foodItems'
 import CImage from '@/shared/ui/Image'
-import useWindowSize from '@/shared/hooks/useWindowSize'
 import clsx from 'clsx'
 
 const SearchWithPopup: React.FC = () => {
 	const { $t } = useLanguageStore()
 	const [open, { set }] = useToggle()
 	const [searchValue, setSearchValue] = useState('')
-	const { width } = useWindowSize()
 	const onClose = () => set(false)
 
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -36,17 +34,17 @@ const SearchWithPopup: React.FC = () => {
 
 	return (
 		<>
-			{width <= 600 ? (
-				<button onClick={() => set(true)} className={clsx('inlineFlexCenter',scss.open_search_popup)}>
-					<CiSearch strokeWidth={1.1} />
-				</button>
-			) : (
-				<HeaderInput
-					value={searchValue}
-					onChange={setSearchValue}
-					onKeyDown={handleKeyDown}
-				/>
-			)}
+			<button
+				onClick={() => set(true)}
+				className={clsx('inlineFlexCenter', scss.open_search_popup)}
+			>
+				<CiSearch strokeWidth={1.1} />
+			</button>
+			<HeaderInput
+				value={searchValue}
+				onChange={setSearchValue}
+				onKeyDown={handleKeyDown}
+			/>
 			<Popup blur_bg className={scss.popup} open={open} onClose={onClose}>
 				<HeaderInput
 					value={searchValue}
@@ -75,6 +73,7 @@ const HeaderInput: React.FC<{
 	onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
 	popupVersion?: boolean
 }> = ({ value, onChange, onKeyDown, popupVersion }) => {
+	const {$t} = useLanguageStore()
 	return (
 		<div
 			className={`${scss.header_input} ${
@@ -92,7 +91,7 @@ const HeaderInput: React.FC<{
 				autoFocus
 				onChange={e => onChange(e.target.value)}
 				onKeyDown={onKeyDown}
-				placeholder='Search...'
+				placeholder={`${$t('header.searchPlaceholder', 'global')}...`}
 			/>
 		</div>
 	)

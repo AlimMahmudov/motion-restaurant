@@ -79,11 +79,12 @@
 
 @media (max-width: 600px) {
 	.content {
-		max-width: 100dvw;
-		min-width: 100dvw;
-		top: 56px;
+		max-width: 100vw;
+		min-width: 100vw;
+		top: 54px;
 		position: fixed;
-		height: calc(100dvh - 56px);
+		height: calc(100dvh - 54px);
+		border-radius: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;

@@ -4,7 +4,11 @@
 	align-items: center;
 	border-radius: 8px;
 	overflow: hidden;
-
+	&:not(.popup_version) {
+		@media (max-width: 600px) {
+			display: none;
+		}
+	}
 	&.popup_version {
 		background: #ffffff;
 		width: 90%;
@@ -59,8 +63,12 @@
 }
 
 .open_search_popup {
+	display: none;
 	width: 34px;
 	height: 34px;
+	@media (max-width: 600px) {
+		display: inline-flex;
+	}
 	svg {
 		font-size: 25px;
 	}
