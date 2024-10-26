@@ -1,6 +1,7 @@
 .best {
 	padding: 50px 0;
 	color: #ffffff;
+
 	.best_sellers {
 		display: flex;
 		align-items: flex-end;
@@ -28,6 +29,7 @@
 				font-weight: 600;
 				line-height: 61.36px;
 			}
+
 			p {
 				width: 447px;
 				height: 72px;
@@ -49,18 +51,20 @@
 .kg .best .best_block .best_text,
 .ru .best .best_block .best_text {
 	h4 {
-		max-width: 500px;
+		max-width: 780px;
 		line-height: 1;
 	}
 }
 
-@media (max-width: 500px) {
+@media (max-width: 780px) {
+
 	.kg .best,
 	.ru .best {
 		.best_sellers {
-			margin-bottom: 20px;
 			align-items: center;
 			gap: 10px;
+			margin-bottom: 20px;
+
 			h4 {
 				font-size: 1.9em;
 				font-weight: 400;
@@ -68,8 +72,13 @@
 			}
 		}
 	}
+
 	.best {
 		padding: 70px 0;
+
+		.best_sellers {
+			margin-bottom: 20px;
+		}
 
 		.best_block {
 			justify-content: space-between;
@@ -84,6 +93,7 @@
 					line-height: 1.2 !important;
 					width: 90%;
 				}
+
 				p {
 					width: 90%;
 					height: 72px;

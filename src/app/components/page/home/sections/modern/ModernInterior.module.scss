@@ -1,6 +1,5 @@
 .ModernInterior {
-	padding-bottom: 70px;
-  padding-top: 50px;
+	padding: 70px 0 50px 0;
 	.container {
 		overflow-x: scroll;
 
@@ -36,5 +35,8 @@
 				}
 			}
 		}
+	}
+	@media (max-width:800px) {
+		padding: 50px 0 30px 0;
 	}
 }

@@ -4,6 +4,7 @@
 	height: fit-content;
 	max-width: 400px;
 	min-width: 400px;
+
 	@media (max-width: 1920px) and (min-width: 1250px) {
 		padding-bottom: 25px;
 	}
@@ -45,6 +46,7 @@
 			}
 
 			.item {
+
 				span,
 				a {
 					width: 100%;
@@ -108,6 +110,7 @@
 			transition: all 0.25s;
 			transform-origin: left;
 		}
+
 		&::after {
 			content: '';
 			position: absolute;
@@ -125,6 +128,7 @@
 			&::after {
 				transform: rotateY(0);
 			}
+
 			&::before {
 				transform: rotateX(95deg);
 			}
@@ -142,12 +146,14 @@
 			&::before {
 				background-color: white;
 			}
+
 			span,
 			a {
 				color: white;
 				border-color: white;
 			}
 		}
+
 		span,
 		a {
 			display: inline-block;
@@ -161,14 +167,16 @@
 			text-wrap: nowrap;
 		}
 	}
+
 	&:not(.ourmenu).kg,
 	&:not(.ourmenu).ru {
-		@media (max-width: 500px) {
+		@media (max-width: 780px) {
 			.item {
 				padding: 10px 40px;
 			}
 		}
 	}
+
 	&.ourmenu {
 		@media (max-width: 1250px) {
 			.item {

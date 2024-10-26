@@ -12,7 +12,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 18px 0;
-		@media (max-width:500px) {
+		@media (max-width:780px) {
 			padding-bottom: 13px;
 		}
 
@@ -33,7 +33,6 @@
 				font-size: 28px;
 				font-weight: 600;
 				color: #fff;
-				line-height: 1;
 				margin-bottom: 8px;
 			}
 		}

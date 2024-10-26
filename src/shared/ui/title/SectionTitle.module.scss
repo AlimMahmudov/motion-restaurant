@@ -27,10 +27,12 @@
 		text-align: center;
 		padding-top: 18px;
 	}
+
 	&.kg,
 	&.ru {
-		@media (max-width: 500px) {
+		@media (max-width: 780px) {
 			padding: 0 20px;
+
 			.Title {
 				gap: 0;
 
