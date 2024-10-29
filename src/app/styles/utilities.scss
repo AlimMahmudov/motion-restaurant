@@ -77,7 +77,7 @@
 	&.rounded.loading::after {
 		border-radius: 12px;
 	}
-	@media (max-width:1920px) and (min-width: 780px) {
+	@media (max-width: 1920px) and (min-width: 780px) {
 		&.auto-to-notmobile {
 			width: auto;
 		}

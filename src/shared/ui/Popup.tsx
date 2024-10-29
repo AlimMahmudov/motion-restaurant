@@ -1,5 +1,4 @@
 'use client'
-
 import { useClickAway, useKeyPress } from 'ahooks'
 import clsx from 'clsx'
 import React, { memo, useEffect, useRef } from 'react'
@@ -12,11 +11,11 @@ interface IPopupProps extends IChildren {
 	open: boolean
 	onClose(): void
 	keyover?: boolean
-	blur_bg?: boolean
+	blurbg?: boolean
 }
 
-export const Popup: React.FC<IPopupProps> = memo(props => {
-	const { className, children, onClose, open, keyover, blur_bg = false } = props
+const Popup: React.FC<IPopupProps> = memo(props => {
+	const { className, children, onClose, open, keyover, blurbg = false } = props
 
 	//  @ts-ignore
 	useKeyPress((event: KeyboardEvent) => {
@@ -28,30 +27,30 @@ export const Popup: React.FC<IPopupProps> = memo(props => {
 	useClickAway(onClose, ref, 'click')
 	useEffect(() => {
 		const handleScroll = () => {
-			if (!blur_bg && open) {
+			if (!blurbg && open) {
 				onClose()
 			}
 		}
 
-		if (!blur_bg && open) {
+		if (!blurbg && open) {
 			window.addEventListener('scroll', handleScroll)
 		}
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
-	}, [open, blur_bg, onClose])
+	}, [open, blurbg, onClose])
 	useEffect(() => {
-		if (open && !blur_bg && typeof window !== 'undefined') {
+		if (open && !blurbg && typeof window !== 'undefined') {
 			document.body.style.overflowY = 'hidden'
 		} else {
 			document.body.style.overflowY = 'auto'
 		}
-	}, [open, blur_bg])
+	}, [open, blurbg])
 	if (typeof window === 'undefined') return null
 	return createPortal(
 		<>
-			{open && blur_bg && (
+			{open && blurbg && (
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -86,3 +85,5 @@ export const Popup: React.FC<IPopupProps> = memo(props => {
 		document.body
 	)
 })
+
+export default Popup
