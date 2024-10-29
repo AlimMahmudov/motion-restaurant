@@ -63,12 +63,10 @@
 }
 
 .open_search_popup {
-	display: none;
+	display: inline-flex;
 	width: 34px;
 	height: 34px;
-	@media (max-width: 600px) {
-		display: inline-flex;
-	}
+	
 	svg {
 		font-size: 25px;
 	}

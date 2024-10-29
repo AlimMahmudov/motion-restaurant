@@ -8,10 +8,12 @@ import { useToggle } from 'ahooks'
 import { foodItems } from '@/shared/const/foodItems'
 import CImage from '@/shared/ui/Image'
 import clsx from 'clsx'
+import useWindowSize from '@/shared/hooks/useWindowSize'
 
 const SearchWithPopup: React.FC = () => {
 	const { $t } = useLanguageStore()
 	const [open, { set }] = useToggle()
+	const { width } = useWindowSize()
 	const [searchValue, setSearchValue] = useState('')
 	const onClose = () => set(false)
 
@@ -34,12 +36,14 @@ const SearchWithPopup: React.FC = () => {
 
 	return (
 		<>
-			<button
-				onClick={() => set(true)}
-				className={clsx('inlineFlexCenter', scss.open_search_popup)}
-			>
-				<CiSearch strokeWidth={1.1} />
-			</button>
+			{width <= 600 && (
+				<button
+					onClick={() => set(true)}
+					className={clsx('inlineFlexCenter', scss.open_search_popup)}
+				>
+					<CiSearch strokeWidth={1.1} />
+				</button>
+			)}
 			<HeaderInput
 				value={searchValue}
 				onChange={setSearchValue}
@@ -73,7 +77,7 @@ const HeaderInput: React.FC<{
 	onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void
 	popupVersion?: boolean
 }> = ({ value, onChange, onKeyDown, popupVersion }) => {
-	const {$t} = useLanguageStore()
+	const { $t } = useLanguageStore()
 	return (
 		<div
 			className={`${scss.header_input} ${
