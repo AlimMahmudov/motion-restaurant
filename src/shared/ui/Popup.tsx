@@ -11,11 +11,11 @@ interface IPopupProps extends IChildren {
 	open: boolean
 	onClose(): void
 	keyover?: boolean
-	blurbg?: boolean
+	blur_bg?: boolean
 }
 
-const Popup: React.FC<IPopupProps> = memo(props => {
-	const { className, children, onClose, open, keyover, blurbg = false } = props
+export const Popup: React.FC<IPopupProps> = memo(props => {
+	const { className, children, onClose, open, keyover, blur_bg = false } = props
 
 	//  @ts-ignore
 	useKeyPress((event: KeyboardEvent) => {
@@ -27,30 +27,30 @@ const Popup: React.FC<IPopupProps> = memo(props => {
 	useClickAway(onClose, ref, 'click')
 	useEffect(() => {
 		const handleScroll = () => {
-			if (!blurbg && open) {
+			if (!blur_bg && open) {
 				onClose()
 			}
 		}
 
-		if (!blurbg && open) {
+		if (!blur_bg && open) {
 			window.addEventListener('scroll', handleScroll)
 		}
 
 		return () => {
 			window.removeEventListener('scroll', handleScroll)
 		}
-	}, [open, blurbg, onClose])
+	}, [open, blur_bg, onClose])
 	useEffect(() => {
-		if (open && !blurbg && typeof window !== 'undefined') {
+		if (open && !blur_bg && typeof window !== 'undefined') {
 			document.body.style.overflowY = 'hidden'
 		} else {
 			document.body.style.overflowY = 'auto'
 		}
-	}, [open, blurbg])
+	}, [open, blur_bg])
 	if (typeof window === 'undefined') return null
 	return createPortal(
 		<>
-			{open && blurbg && (
+			{open && blur_bg && (
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -86,4 +86,3 @@ const Popup: React.FC<IPopupProps> = memo(props => {
 	)
 })
 
-export default Popup
